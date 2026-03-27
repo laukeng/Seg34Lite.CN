@@ -1,0 +1,423 @@
+<strings>
+    <string id="AppName">Seg34CNLite</string>
+
+    <string id="UNIT_KCAL">KCAL</string>
+    <string id="UNIT_M">M</string>
+    <string id="UNIT_FT">FT</string>
+    <string id="UNIT_STEPS">STEPS</string>
+    <string id="UNIT_PUSHES">PUSHES</string>
+    <string id="LABEL_FL">FL</string>
+    <string id="LABEL_NA">N/A</string>
+    <string id="LABEL_POS_NA">POSITION N/A</string>
+
+    <string id="WEATHER_0">CLEAR</string>
+    <string id="WEATHER_1">PARTLY CLOUDY</string>
+    <string id="WEATHER_2">MOSTLY CLOUDY</string>
+    <string id="WEATHER_3">RAIN</string>
+    <string id="WEATHER_4">SNOW</string>
+    <string id="WEATHER_5">WINDY</string>
+    <string id="WEATHER_6">THUNDERSTORMS</string>
+    <string id="WEATHER_7">WINTRY MIX</string>
+    <string id="WEATHER_8">FOG</string>
+    <string id="WEATHER_9">HAZY</string>
+    <string id="WEATHER_10">HAIL</string>
+    <string id="WEATHER_11">SCATTERED SHOWERS</string>
+    <string id="WEATHER_12">SCT. THUNDERSTORMS</string>
+    <string id="WEATHER_13">UNKNOWN PRECIPITATION</string>
+    <string id="WEATHER_14">LIGHT RAIN</string>
+    <string id="WEATHER_15">HEAVY RAIN</string>
+    <string id="WEATHER_16">LIGHT SNOW</string>
+    <string id="WEATHER_17">HEAVY SNOW</string>
+    <string id="WEATHER_18">LIGHT RAIN SNOW</string>
+    <string id="WEATHER_19">HEAVY RAIN SNOW</string>
+    <string id="WEATHER_20">CLOUDY</string>
+    <string id="WEATHER_21">RAIN SNOW</string>
+    <string id="WEATHER_22">PARTLY CLEAR</string>
+    <string id="WEATHER_23">MOSTLY CLEAR</string>
+    <string id="WEATHER_24">LIGHT SHOWERS</string>
+    <string id="WEATHER_25">SHOWERS</string>
+    <string id="WEATHER_26">HEAVY SHOWERS</string>
+    <string id="WEATHER_27">CHANCE OF SHOWERS</string>
+    <string id="WEATHER_28">CH. OF THUNDERSTORMS</string>
+    <string id="WEATHER_29">MIST</string>
+    <string id="WEATHER_30">DUST</string>
+    <string id="WEATHER_31">DRIZZLE</string>
+    <string id="WEATHER_32">TORNADO</string>
+    <string id="WEATHER_33">SMOKE</string>
+    <string id="WEATHER_34">ICE</string>
+    <string id="WEATHER_35">SAND</string>
+    <string id="WEATHER_36">SQUALL</string>
+    <string id="WEATHER_37">SANDSTORM</string>
+    <string id="WEATHER_38">VOLCANIC ASH</string>
+    <string id="WEATHER_39">HAZE</string>
+    <string id="WEATHER_40">FAIR</string>
+    <string id="WEATHER_41">HURRICANE</string>
+    <string id="WEATHER_42">TROPICAL STORM</string>
+    <string id="WEATHER_43">CHANCE OF SNOW</string>
+    <string id="WEATHER_44">CHANCE OF RAIN SNOW</string>
+    <string id="WEATHER_45">CLOUDY CHANCE OF RAIN</string>
+    <string id="WEATHER_46">CLOUDY CHANCE OF SNOW</string>
+    <string id="WEATHER_47">CLOUDY CHANCE OF RAIN SNOW</string>
+    <string id="WEATHER_48">FLURRIES</string>
+    <string id="WEATHER_49">FREEZING RAIN</string>
+    <string id="WEATHER_50">SLEET</string>
+    <string id="WEATHER_51">ICE SNOW</string>
+    <string id="WEATHER_52">THIN CLOUDS</string>
+    <string id="WEATHER_53">UNKNOWN</string>
+
+    <string id="DAY_OF_WEEK_SUN">SUN</string>
+    <string id="DAY_OF_WEEK_MON">MON</string>
+    <string id="DAY_OF_WEEK_TUE">TUE</string>
+    <string id="DAY_OF_WEEK_WED">WED</string>
+    <string id="DAY_OF_WEEK_THU">THU</string>
+    <string id="DAY_OF_WEEK_FRI">FRI</string>
+    <string id="DAY_OF_WEEK_SAT">SAT</string>
+
+    <string id="LABEL_WMIN_1">W MIN</string>
+    <string id="LABEL_WMIN_2">WEEK MIN</string>
+    <string id="LABEL_WMIN_3">WEEK ACT MIN</string>
+    <string id="LABEL_DMIN_1">D MIN</string>
+    <string id="LABEL_DMIN_2">MIN TODAY</string>
+    <string id="LABEL_DMIN_3">DAY ACT MIN</string>
+    <string id="LABEL_DKM_1">D KM</string>
+    <string id="LABEL_DKM_2">KM TODAY</string>
+    <string id="LABEL_DMI_1">D MI</string>
+    <string id="LABEL_DMI_2">MI TODAY</string>
+    <string id="LABEL_DMI_3">MILES TODAY</string>
+    <string id="LABEL_FLOORS">FLOORS:</string>
+    <string id="LABEL_CLIMB_1">CLIMB</string>
+    <string id="LABEL_CLIMB_2">M CLIMBED</string>
+    <string id="LABEL_RECOV_1">RECOV</string>
+    <string id="LABEL_RECOV_2">RECOV HRS</string>
+    <string id="LABEL_RECOV_3">RECOVERY HRS</string>
+    <string id="LABEL_VO2_1">VO2</string>
+    <string id="LABEL_VO2_2">VO2 MAX</string>
+    <string id="LABEL_VO2RUN_3">RUN VO2 MAX</string>
+    <string id="LABEL_VO2BIKE_3">BIKE VO2 MAX</string>
+    <string id="LABEL_RESP_1">RESP</string>
+    <string id="LABEL_RESP_2">RESP RATE</string>
+    <string id="LABEL_RESP_3">RESP. RATE</string>
+    <string id="LABEL_HR">HR:</string>
+    <string id="LABEL_CAL_1">CAL</string>
+    <string id="LABEL_CAL_2">CALORIES</string>
+    <string id="LABEL_CAL_3">DLY CALORIES</string>
+    <string id="LABEL_ALT_1">ALT</string>
+    <string id="LABEL_ALT_2">ALTITUDE</string>
+    <string id="LABEL_ALTM_3">ALTITUDE M</string>
+    <string id="LABEL_STRESS">STRESS:</string>
+    <string id="LABEL_ALTFT_3">ALTITUDE FT</string>
+    <string id="LABEL_BBAT_1">B BAT</string>
+    <string id="LABEL_BBAT_2">BODY BATT</string>
+    <string id="LABEL_BBAT_3">BODY BATTERY</string>
+    <string id="LABEL_STEPS">STEPS:</string>
+    <string id="LABEL_DIST_1">DIST</string>
+    <string id="LABEL_DIST_2">M TODAY</string>
+    <string id="LABEL_DIST_3">METERS TODAY</string>
+    <string id="LABEL_PUSHES">PUSHES:</string>
+    <string id="LABEL_WKM_1">W KM</string>
+    <string id="LABEL_WRUNM_2">W RUN KM</string>
+    <string id="LABEL_WRUNM_3">WEEK RUN KM</string>
+    <string id="LABEL_WMI_1">W MI</string>
+    <string id="LABEL_WRUNMI_2">W RUN MI</string>
+    <string id="LABEL_WRUNMI_3">WEEK RUN MI</string>
+    <string id="LABEL_WBIKEKM_2">W BIKE KM</string>
+    <string id="LABEL_WBIKEKM_3">WEEK BIKE KM</string>
+    <string id="LABEL_WBIKEMI_2">W BIKE MI</string>
+    <string id="LABEL_WBIKEMI_3">WEEK BIKE MI</string>
+    <string id="LABEL_TRAINING">TRAINING:</string>
+    <string id="LABEL_PRESSURE">PRESSURE:</string>
+    <string id="LABEL_KG_1">KG</string>
+    <string id="LABEL_LBS_1">LBS</string>
+    <string id="LABEL_ACAL_1">A CAL</string>
+    <string id="LABEL_ACAL_2">ACT. CAL</string>
+    <string id="LABEL_ACAL_3">ACT. CALORIES</string>
+    <string id="LABEL_WEEK">WEEK:</string>
+    <string id="LABEL_WDISTKM_2">WEEK KM</string>
+    <string id="LABEL_WDISTKM_3">WEEK DIST KM</string>
+    <string id="LABEL_WDISTMI_2">WEEK MI</string>
+    <string id="LABEL_WDISTMI_3">WEEKLY MILES</string>
+    <string id="LABEL_BATT_1">BATT</string>
+    <string id="LABEL_BATT_2">BATT %</string>
+    <string id="LABEL_BATT_3">BATTERY %</string>
+    <string id="LABEL_BATTD_1">BATT D</string>
+    <string id="LABEL_BATTD_2">BATT DAYS</string>
+    <string id="LABEL_BATTD_3">BATTERY DAYS</string>
+    <string id="LABEL_NOTIFS_1">NOTIFS</string>
+    <string id="LABEL_NOTIFS_3">NOTIFS</string>
+    <string id="LABEL_SUN_1">SUN</string>
+    <string id="LABEL_SUNINT_2">SUN INT</string>
+    <string id="LABEL_SUNINT_3">SUN INTENSITY</string>
+    <string id="LABEL_TEMP_1">TEMP</string>
+    <string id="LABEL_STEMP_3">SENSOR TEMP</string>
+    <string id="LABEL_DAWN_1">S RISE</string>
+    <string id="LABEL_DAWN_2">SUNRISE</string>
+    <string id="LABEL_DUSK_1">S SET</string>
+    <string id="LABEL_DUSK_2">SUNSET</string>
+    <string id="LABEL_ALARM_1">ALARM</string>
+    <string id="LABEL_ALARM_2">ALARMS</string>
+    <string id="LABEL_HIGH_1">HIGH</string>
+    <string id="LABEL_HIGH_2">DAILY HIGH</string>
+    <string id="LABEL_LOW_1">LOW</string>
+    <string id="LABEL_LOW_2">DAILY LOW</string>
+    <string id="LABEL_TEMP_3">TEMPERATURE</string>
+    <string id="LABEL_PRECIP_1">PRECIP</string>
+    <string id="LABEL_PRECIP_3">PRECIP</string>
+    <string id="LABEL_NEXTSUN_1">SUN</string>
+    <string id="LABEL_NEXTSUN_2">NEXT SUN</string>
+    <string id="LABEL_NEXTSUN_3">NEXT SUN EVNT</string>
+    <string id="LABEL_NEXTCAL_1">CAL</string>
+    <string id="LABEL_NEXTCAL_2">NEXT CAL</string>
+    <string id="LABEL_NEXTCAL_3">NEXT CAL EVNT</string>
+    <string id="LABEL_OX_1">OX</string>
+    <string id="LABEL_OX_2">PULSE OX</string>
+    <string id="LABEL_ACC_1">ACC</string>
+    <string id="LABEL_ACC_2">POS ACC</string>
+    <string id="LABEL_HRS_NEXT_SUN_EVENT_1">H SUN</string>
+    <string id="LABEL_HRS_NEXT_SUN_EVENT_3">HRS SUN</string>
+    <string id="LABEL_RHR_1">RHR</string>
+    <string id="LABEL_RHR_2">REST HR</string>
+    <string id="LABEL_RHR_3">RESTING HR</string>
+
+    <!-- Settings strings with scope="settings" -->
+    <string id="settings_color_theme" scope="settings">Color Theme</string>
+    <string id="settings_yellow_on_turquoise" scope="settings">Yellow on turquoise</string>
+    <string id="settings_yellow_on_blue" scope="settings">Yellow on blue</string>
+    <string id="settings_hot_pink" scope="settings">Hot pink</string>
+    <string id="settings_blue" scope="settings">Blue</string>
+    <string id="settings_blueish_green" scope="settings">Blueish green</string>
+    <string id="settings_green" scope="settings">Green</string>
+    <string id="settings_green_camo" scope="settings">Green camo</string>
+    <string id="settings_green_and_orange" scope="settings">Green and Orange</string>
+    <string id="settings_orange" scope="settings">Orange</string>
+    <string id="settings_amber" scope="settings">Amber</string>
+    <string id="settings_peachy_orange" scope="settings">Peachy Orange</string>
+    <string id="settings_red" scope="settings">Red</string>
+    <string id="settings_purple" scope="settings">Purple</string>
+    <string id="settings_white_on_turquoise" scope="settings">White on turquoise</string>
+    <string id="settings_white_on_red" scope="settings">White on red</string>
+    <string id="settings_white_on_blue" scope="settings">White on blue</string>
+    <string id="settings_white_on_orange" scope="settings">White on orange</string>
+    <string id="settings_white_on_black" scope="settings">White on black</string>
+    <string id="settings_black_on_white" scope="settings">Black on white (not recommended for AMOLED)</string>
+    <string id="settings_red_on_white" scope="settings">Red on white (not recommended for AMOLED)</string>
+    <string id="settings_blue_on_white" scope="settings">Blue on white (not recommended for AMOLED)</string>
+    <string id="settings_green_on_white" scope="settings">Green on white (not recommended for AMOLED)</string>
+    <string id="settings_orange_on_white" scope="settings">Orange on white (not recommended for AMOLED)</string>
+    <string id="settings_purple_on_white" scope="settings">Purple on white (not recommended for AMOLED)</string>
+    <string id="settings_custom_colors" scope="settings">Custom colors, see FAQ 1.2.0 for details</string>
+    <string id="settings_custom_colors_faq" scope="settings">Custom colors, see FAQ for details</string>
+    <string id="settings_night_color_theme" scope="settings">Night Color Theme</string>
+    <string id="settings_no_change" scope="settings">No change</string>
+    <string id="settings_night_theme_activation" scope="settings">Activate Night Color Theme:</string>
+    <string id="settings_during_scheduled_sleep" scope="settings">During scheduled sleep hours</string>
+    <string id="settings_two_hours_before" scope="settings">2 hours before scheduled sleep hours</string>
+    <string id="settings_from_sunset_sunrise" scope="settings">From Sunset to Sunrise (requires weather data)</string>
+    <string id="settings_custom_colors_read" scope="settings">Custom colors, read FAQ first</string>
+    <string id="settings_enter_13_values" scope="settings">Enter 13 values separated by spaces, #FFFFFF format or -</string>
+    <string id="settings_clock_outline_style" scope="settings">Clock outline style (AMOLED only)</string>
+    <string id="settings_filled_numbers_no_outline" scope="settings">Filled numbers no outline, same in AOD</string>
+    <string id="settings_filled_numbers_no_outline_aod" scope="settings">Filled numbers no outline, only outline in AOD</string>
+    <string id="settings_filled_numbers_no_outline_filled" scope="settings">Filled numbers no outline, filled using outline color in AOD</string>
+    <string id="settings_filled_numbers_with_outline" scope="settings">Filled numbers with outline, same in AOD</string>
+    <string id="settings_filled_numbers_with_outline_aod" scope="settings">Filled numbers with outline, only outline in AOD</string>
+    <string id="settings_just_outline" scope="settings">Just show the outline</string>
+    <string id="settings_filled_numbers_plain" scope="settings">Filled numbers no outline, no gradient in AOD (better for redshift)</string>
+    <string id="settings_clock_gradient_overlay" scope="settings">Clock Gradient Overlay</string>
+    <string id="settings_gradient_clock_and_aod" scope="settings">Gradient for both clock and AOD (default)</string>
+    <string id="settings_gradient_aod_only" scope="settings">No gradient for clock, gradient in AOD</string>
+    <string id="settings_gradient_clock_only" scope="settings">Gradient for clock, no gradient in AOD</string>
+    <string id="settings_gradient_none" scope="settings">No gradients</string>
+    <string id="settings_update_frequency" scope="settings">Update frequency for data</string>
+    <string id="settings_every_minute" scope="settings">Every minute</string>
+    <string id="settings_every_30_seconds" scope="settings">Every 30 seconds</string>
+    <string id="settings_every_5_seconds" scope="settings">Every 5 seconds</string>
+    <string id="settings_every_second" scope="settings">Every second</string>
+    <string id="settings_top_part_shows" scope="settings">Top Part shows</string>
+    <string id="settings_two_small_data" scope="settings">Two small data fields and Moon phase</string>
+    <string id="settings_two_small_data_fields" scope="settings">Two small data fields</string>
+    <string id="settings_histogram_graph" scope="settings">A histogram graph (last 2 hours of data)</string>
+    <string id="settings_top_left_small" scope="settings">Top left small data field:</string>
+    <string id="settings_hidden" scope="settings">Hidden</string>
+    <string id="settings_active_min_week" scope="settings">Active min / week</string>
+    <string id="settings_active_min_day" scope="settings">Active min / day</string>
+    <string id="settings_distance_day" scope="settings">Distance / day</string>
+    <string id="settings_run_distance_week" scope="settings">Run distance / week</string>
+    <string id="settings_run_distance_7_days" scope="settings">Run distance past 7 days (on device activities only)</string>
+    <string id="settings_bike_distance_week" scope="settings">Bike distance / week</string>
+    <string id="settings_bike_distance_7_days" scope="settings">Bike distance past 7 days (on device activities only)</string>
+    <string id="settings_total_distance_7_days" scope="settings">Total distance past 7 days</string>
+    <string id="settings_floors_climbed_day" scope="settings">Floors climbed / day</string>
+    <string id="settings_meters_climbed_day" scope="settings">Meters climbed / day</string>
+    <string id="settings_time_to_recovery" scope="settings">Time to Recovery (h)</string>
+    <string id="settings_vo2_max_running" scope="settings">VO2 Max Running</string>
+    <string id="settings_vo2_max_cycling" scope="settings">VO2 Max Cycling</string>
+    <string id="settings_respiration_rate" scope="settings">Respiration Rate</string>
+    <string id="settings_heart_rate" scope="settings">Heart Rate</string>
+    <string id="settings_pulse_ox" scope="settings">Pulse Ox</string>
+    <string id="settings_calories_kcal_day" scope="settings">Calories (kcal) / day</string>
+    <string id="settings_active_calories_kcal_day" scope="settings">Active calories (kcal) / day</string>
+    <string id="settings_altitude_m" scope="settings">Altitude (m)</string>
+    <string id="settings_altitude_ft" scope="settings">Altitude (ft)</string>
+    <string id="settings_stress_score" scope="settings">Stress score</string>
+    <string id="settings_body_battery" scope="settings">Body battery</string>
+    <string id="settings_sunrise_time" scope="settings">Sunrise time</string>
+    <string id="settings_sunset_time" scope="settings">Sunset time</string>
+    <string id="settings_next_sun_event" scope="settings">Next sun event (sunset/sunrise) time</string>
+    <string id="settings_hrs_next_sun_event" scope="settings">Hours to next sun event (sunset/sunrise)</string>
+    <string id="settings_resting_heart_rate" scope="settings">Resting Heart Rate</string>
+    <string id="settings_alternative_timezone_1" scope="settings">Alternative Timezone 1</string>
+    <string id="settings_alternative_timezone_2" scope="settings">Alternative Timezone 2</string>
+    <string id="settings_barometric_pressure_raw" scope="settings">Barometric Pressure, raw</string>
+    <string id="settings_barometric_pressure_sea" scope="settings">Barometric Pressure, sea level</string>
+    <string id="settings_battery_percentage" scope="settings">Battery percentage</string>
+    <string id="settings_battery_days_remaining" scope="settings">Battery days remaining</string>
+    <string id="settings_notification_count" scope="settings">Notification count</string>
+    <string id="settings_solar_intensity" scope="settings">Solar intensity</string>
+    <string id="settings_sensor_temperature" scope="settings">Sensor temperature</string>
+    <string id="settings_alarms_count" scope="settings">Alarms (count)</string>
+    <string id="settings_next_calendar_event" scope="settings">Next calendar event time</string>
+    <string id="settings_next_calendar_event_time" scope="settings">Next calendar event time</string>
+    <string id="settings_top_right_small" scope="settings">Top right small data field:</string>
+    <string id="settings_histogram_shows" scope="settings">Histogram shows (must be enabled in Top Part shows)</string>
+    <string id="settings_body_battery_history" scope="settings">Body battery history</string>
+    <string id="settings_elevation_history" scope="settings">Elevation history</string>
+    <string id="settings_heart_rate_history" scope="settings">Heart rate history</string>
+    <string id="settings_oxygen_saturation_history" scope="settings">Oxygen saturation history</string>
+    <string id="settings_pressure_history" scope="settings">Pressure history</string>
+    <string id="settings_stress_history" scope="settings">Stress history</string>
+    <string id="settings_stress_rest_orange_blue" scope="settings">Stress/rest (orange/blue)</string>
+    <string id="settings_temperature_sensor_history" scope="settings">Temperature sensor history</string>
+    <string id="settings_line_1_above_clock" scope="settings">Line 1 above clock shows:</string>
+    <string id="settings_date" scope="settings">Date</string>
+    <string id="settings_weather_conditions_precipitation" scope="settings">Weather conditions, Precipitation chance</string>
+    <string id="settings_weather_conditions_temperature" scope="settings">Weather conditions, Temperature</string>
+    <string id="settings_steps_day" scope="settings">Steps / day</string>
+    <string id="settings_wheelchair_pushes_day" scope="settings">Wheelchair pushes / day</string>
+    <string id="settings_calories_kcal_day_2" scope="settings">Calories (kcal) / day</string>
+    <string id="settings_active_total_calories" scope="settings">Active/Total Calories (kcal) / day</string>
+    <string id="settings_altitude_m_2" scope="settings">Altitude (m)</string>
+    <string id="settings_altitude_ft_2" scope="settings">Altitude (ft)</string>
+    <string id="settings_training_status" scope="settings">Training status</string>
+    <string id="settings_military_date_time" scope="settings">Millitary Date Time Group (UTC)</string>
+    <string id="settings_line_2_above_clock" scope="settings">Line 2 above clock shows:</string>
+    <string id="settings_weather_conditions_precipitation_chance" scope="settings">Weather conditions + Percipitation chance</string>
+    <string id="settings_line_below_clock" scope="settings">Line below clock shows:</string>
+    <string id="settings_bottom_field_layout" scope="settings">Bottom field layout (number of digits per field)</string>
+    <string id="settings_auto_default_layout" scope="settings">Auto - Default layout depending on screen size</string>
+    <string id="settings_bottom_value_1_left" scope="settings">Bottom value 1 (left):</string>
+    <string id="settings_bottom_value_2" scope="settings">Bottom value 2:</string>
+    <string id="settings_bottom_value_3" scope="settings">Bottom value 3:</string>
+    <string id="settings_bottom_value_4" scope="settings">Bottom value 4 (if available):</string>
+    <string id="settings_bottom_5_digit" scope="settings">Bottom 5 digit value:</string>
+    <string id="settings_bottom_5_digit_value" scope="settings">Bottom 5 digit value:</string>
+    <string id="settings_bottom_5_digit_value_2" scope="settings">Bottom 5 digit value 2 (square watches only):</string>
+    <string id="settings_distance_meter_day" scope="settings">Distance (meter) / day</string>
+    <string id="settings_battery_display" scope="settings">Battery display:</string>
+    <string id="settings_remaining_days" scope="settings">Remaining days</string>
+    <string id="settings_percentage_remaining" scope="settings">Percentage remaining</string>
+    <string id="settings_bar" scope="settings">Bar</string>
+    <string id="settings_left_icon_indicates" scope="settings">Left Icon indicates:</string>
+    <string id="settings_alarm" scope="settings">Alarm</string>
+    <string id="settings_do_not_disturb" scope="settings">Do Not Disturb</string>
+    <string id="settings_bluetooth_on_off" scope="settings">Bluetooth (on/off)</string>
+    <string id="settings_bluetooth_just_when_off" scope="settings">Bluetooth (just when off)</string>
+    <string id="settings_move_bar" scope="settings">Move Bar</string>
+    <string id="settings_right_icon_indicates" scope="settings">Right Icon indicates:</string>
+    <string id="settings_always_on_below" scope="settings">Always On (below clock):</string>
+    <string id="settings_second_always_on" scope="settings">Second Always On Field (to the right):</string>
+    <string id="settings_text_alignment_always" scope="settings">Text alignment for Always On line (below clock):</string>
+    <string id="settings_left" scope="settings">Left</string>
+    <string id="settings_center" scope="settings">Center</string>
+    <string id="settings_text_alignment_date" scope="settings">Text alignment for Date:</string>
+    <string id="settings_text_alignment_bottom" scope="settings">Text alignment for bottom data fields:</string>
+    <string id="settings_right" scope="settings">Right</string>
+    <string id="settings_left_center_5_digit" scope="settings">Left, but center the 5 digit field</string>
+    <string id="settings_press_top_third" scope="settings">Press top third to open:</string>
+    <string id="settings_nothing" scope="settings">Nothing</string>
+    <string id="settings_toggle_night_color" scope="settings">Toggle night color theme</string>
+    <string id="settings_battery" scope="settings">Battery</string>
+    <string id="settings_steps" scope="settings">Steps</string>
+    <string id="settings_calories" scope="settings">Calories</string>
+    <string id="settings_floors_climbed" scope="settings">Floors climbed</string>
+    <string id="settings_intensity_minutes" scope="settings">Intensiy minutes</string>
+    <string id="settings_date_2" scope="settings">Date</string>
+    <string id="settings_weather" scope="settings">Weather</string>
+    <string id="settings_calendar" scope="settings">Calendar</string>
+    <string id="settings_sunrise" scope="settings">Sunrise</string>
+    <string id="settings_altitude" scope="settings">Altitude</string>
+    <string id="settings_notifications" scope="settings">Notifications</string>
+    <string id="settings_heart_rate_2" scope="settings">Heart rate</string>
+    <string id="settings_weekly_run_distance" scope="settings">Weekly Run distance</string>
+    <string id="settings_weekly_bike_distance" scope="settings">Weekly Bike distance</string>
+    <string id="settings_recovery_time" scope="settings">Recovery time</string>
+    <string id="settings_stress" scope="settings">Stress</string>
+    <string id="settings_body_battery_2" scope="settings">Body battery</string>
+    <string id="settings_training_status_2" scope="settings">Training status</string>
+    <string id="settings_race_predictor_5k" scope="settings">Race predictor 5k</string>
+    <string id="settings_pulse_ox_2" scope="settings">Pulse OX</string>
+    <string id="settings_solar_input" scope="settings">Solar Input</string>
+    <string id="settings_press_middle_clock" scope="settings">Press middle (clock) to open:</string>
+    <string id="settings_press_bottom_left" scope="settings">Press bottom left to open:</string>
+    <string id="settings_press_bottom_center" scope="settings">Press bottom center to open:</string>
+    <string id="settings_press_bottom_right" scope="settings">Press bottom right to open:</string>
+    <string id="settings_hemisphere_moon" scope="settings">Hemisphere (for Moon icon)</string>
+    <string id="settings_northern" scope="settings">Northern</string>
+    <string id="settings_southern" scope="settings">Southern</string>
+    <string id="settings_time_format" scope="settings">Time format (12/24h)</string>
+    <string id="settings_auto_use_system" scope="settings">Auto - Use system setting</string>
+    <string id="settings_24h" scope="settings">24h</string>
+    <string id="settings_12h" scope="settings">12h</string>
+    <string id="settings_date_format" scope="settings">Date format</string>
+    <string id="settings_yyyy_mm_dd_weekday" scope="settings">MM/DD/YYYY WEEKDAY</string>
+    <string id="settings_weekday_yyyy_mm_dd" scope="settings">WEEKDAY YYYY-MM-DD</string>
+    <string id="settings_alternative_timezone_1_label" scope="settings">Alternative Timezone 1 label</string>
+    <string id="settings_alternative_timezone_1_offset" scope="settings">Alternative Timezone 1 offset</string>
+    <string id="settings_alternative_timezone_2_label" scope="settings">Alternative Timezone 2 label</string>
+    <string id="settings_alternative_timezone_2_offset" scope="settings">Alternative Timezone 2 offset</string>
+    <string id="settings_temperature_unit" scope="settings">Temperature unit</string>
+    <string id="settings_show_temp_unit" scope="settings">Show temperature unit</string>
+    <string id="settings_c" scope="settings">C</string>
+    <string id="settings_f" scope="settings">F</string>
+    <string id="settings_distance_unit" scope="settings">Distance unit</string>
+    <string id="settings_km" scope="settings">km</string>
+    <string id="settings_miles" scope="settings">miles</string>
+    <string id="settings_ms" scope="settings">m/s</string>
+    <string id="settings_kmh" scope="settings">km/h</string>
+    <string id="settings_mph" scope="settings">mph</string>
+    <string id="settings_knots" scope="settings">knots</string>
+    <string id="settings_beufort" scope="settings">beufort</string>
+    <string id="settings_pressure_unit" scope="settings">Pressure unit</string>
+    <string id="settings_hpa" scope="settings">hPA</string>
+    <string id="settings_mmhg" scope="settings">mmHG</string>
+    <string id="settings_inhg" scope="settings">inHG</string>
+    <string id="settings_show_clock_background" scope="settings">Show clock background</string>
+    <string id="settings_show_data_fields_background" scope="settings">Show data fields background</string>
+    <string id="settings_notification_field_shows" scope="settings">Number left of seconds shows</string>
+    <string id="settings_zeropad_hour_clock" scope="settings">Zeropad hour on clock</string>
+    <string id="settings_separator_hours_minutes" scope="settings">Separator between Hours and Minutes, AM/PM</string>
+    <string id="settings_auto" scope="settings">Auto - AM/PM for 12h time</string>
+    <string id="settings_colon" scope="settings">:</string>
+    <string id="settings_blank_space" scope="settings">Blank space</string>
+    <string id="settings_no_separator" scope="settings">No separator</string>
+    <string id="settings_ampm" scope="settings">No separator, show AM/PM after instead</string>
+    <string id="settings_show_seconds_active" scope="settings">Show Seconds in Active mode</string>
+    <string id="settings_show_seconds_inactive" scope="settings">Show seconds in Inactive mode (MIP screens only)</string>
+    <string id="settings_show_stress_body_battery" scope="settings">Show Stress (orange) and Body Battery (blue) bars</string>
+    <string id="settings_show_hide_labels" scope="settings">Show/Hide Labels</string>
+    <string id="settings_show_all_labels" scope="settings">Show All Labels</string>
+    <string id="settings_hide_all_labels" scope="settings">Hide All Labels</string>
+    <string id="settings_hide_top_labels" scope="settings">Hide Top Labels</string>
+    <string id="settings_hide_bottom_labels" scope="settings">Hide Bottom Labels</string>
+    <string id="settings_left_bar_shows" scope="settings">Left Bar Shows</string>
+    <string id="settings_right_bar_shows" scope="settings">Right Bar Shows</string>
+    <string id="settings_step_goal_progress" scope="settings">Step Goal Progress</string>
+    <string id="settings_floor_climb_progress" scope="settings">Floors Climbed Progress</string>
+    <string id="settings_act_min_progress" scope="settings">Active minutes goal, weekly progress</string>
+    <string id="settings_text_alignment_bottom_labels" scope="settings">Text alignment for bottom field labels:</string>
+    <string id="settings_lunar_calendar" scope="settings">Lunar Calendar</string>
+    <string id="settings_aod_style" scope="settings">AOD Style</string>
+    <string id="settings_aod_disabled" scope="settings">Disabled (also disable in watch settings for best battery life)</string>
+    <string id="settings_aod_clock_two_fields" scope="settings">Clock + two fields (defined below)</string>
+    <string id="settings_aod_full_watchface" scope="settings">Full watchface (uses most battery)</string>
+    <string id="settings_stress_dynamic_color" scope="settings">Dynamic Stress Colors</string>
+</strings>

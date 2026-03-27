@@ -1,0 +1,8 @@
+bin
+.DS_Store
+**/.DS_Store
+.vscode
+build_devices.sh
+release
+*.iq
+*.icloud
