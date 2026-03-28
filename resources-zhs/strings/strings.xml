@@ -219,8 +219,8 @@
     <string id="settings_histogram_graph" scope="settings">直方图（最近2小时数据）</string>
     <string id="settings_top_left_small" scope="settings">左上角小数据字段：</string>
     <string id="settings_hidden" scope="settings">隐藏</string>
-    <string id="settings_active_min_week" scope="settings">每周活跃分钟数</string>
-    <string id="settings_active_min_day" scope="settings">每日活跃分钟数</string>
+    <string id="settings_active_min_week" scope="settings">每周活动分钟数</string>
+    <string id="settings_active_min_day" scope="settings">每日活动分钟数</string>
     <string id="settings_distance_day" scope="settings">每日距离</string>
     <string id="settings_run_distance_week" scope="settings">每周跑步距离</string>
     <string id="settings_run_distance_7_days" scope="settings">过去7天跑步距离</string>
@@ -236,7 +236,7 @@
     <string id="settings_heart_rate" scope="settings">心率</string>
     <string id="settings_pulse_ox" scope="settings">血氧</string>
     <string id="settings_calories_kcal_day" scope="settings">每日卡路里（千卡）</string>
-    <string id="settings_active_calories_kcal_day" scope="settings">每日活跃卡路里（千卡）</string>
+    <string id="settings_active_calories_kcal_day" scope="settings">每日活动卡路里（千卡）</string>
     <string id="settings_altitude_m" scope="settings">海拔（米）</string>
     <string id="settings_altitude_ft" scope="settings">海拔（英尺）</string>
     <string id="settings_stress_score" scope="settings">压力分数</string>
@@ -275,7 +275,7 @@
     <string id="settings_temperature_humidity_high_low" scope="settings">温度，湿度，最低～最高温度</string>
     <string id="settings_steps_day" scope="settings">每日步数</string>
     <string id="settings_calories_kcal_day_2" scope="settings">每日卡路里（千卡）</string>
-    <string id="settings_active_total_calories" scope="settings">每日活跃/总卡路里（千卡）</string>
+    <string id="settings_active_total_calories" scope="settings">每日活动/总卡路里（千卡）</string>
     <string id="settings_altitude_m_2" scope="settings">海拔（米）</string>
     <string id="settings_altitude_ft_2" scope="settings">海拔（英尺）</string>
     <string id="settings_line_2_above_clock" scope="settings">时钟上方第二行显示：</string>
@@ -388,7 +388,7 @@
     <string id="settings_right_bar_shows" scope="settings">右侧条形显示</string>
     <string id="settings_step_goal_progress" scope="settings">步数目标进度</string>
     <string id="settings_floor_climb_progress" scope="settings">爬楼进度</string>
-    <string id="settings_act_min_progress" scope="settings">活跃分钟目标，每周进度</string>
+    <string id="settings_act_min_progress" scope="settings">活动分钟目标，每周进度</string>
     <string id="settings_text_alignment_bottom_labels" scope="settings">底部字段标签的文本对齐：</string>
     <string id="settings_lunar_calendar" scope="settings">农历</string>
     <string id="settings_aod_style" scope="settings">始终显示模式（AOD）</string>

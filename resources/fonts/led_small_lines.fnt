@@ -90,7 +90,7 @@ char id=377 x=785 y=0 width=9 height=13 xoffset=0 yoffset=1 xadvance=12 page=0
 
 char id=43 x=112 y=160 width=7 height=7 xoffset=0 yoffset=4 xadvance=8 page=1
 char id=126 x=112 y=168 width=7 height=7 xoffset=0 yoffset=5 xadvance=9 page=1
-char id=8451 x=120 y=160 width=13 height=13 xoffset=0 yoffset=1 xadvance=13 page=1
+char id=8451 x=120 y=160 width=13 height=13 xoffset=0 yoffset=1 xadvance=15 page=1
 char id=19968 x=0 y=0 width=16 height=15 xoffset=0 yoffset=0 xadvance=16 page=1
 char id=19969 x=16 y=0 width=16 height=15 xoffset=0 yoffset=0 xadvance=16 page=1
 char id=19971 x=32 y=0 width=16 height=15 xoffset=0 yoffset=0 xadvance=16 page=1
