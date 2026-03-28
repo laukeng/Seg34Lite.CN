@@ -272,7 +272,7 @@
     <string id="settings_date" scope="settings">Date</string>
     <string id="settings_weather_conditions_precipitation" scope="settings">Weather conditions, Percipitation chance</string>
     <string id="settings_weather_conditions_temperature" scope="settings">Weather conditions, Temperature</string>
-    <string id="settings_temperature_humidity_high_low" scope="settings">Temperature, Humidity, High/Low</string>
+    <string id="settings_temperature_humidity_high_low" scope="settings">Temperature, Humidity, Low/High</string>
     <string id="settings_steps_day" scope="settings">Steps / day</string>
     <string id="settings_calories_kcal_day_2" scope="settings">Calories (kcal) / day</string>
     <string id="settings_active_total_calories" scope="settings">Active/Total Calories (kcal) / day</string>
@@ -332,7 +332,6 @@
     <string id="settings_body_battery_2" scope="settings">Body battery</string>
     <string id="settings_race_predictor_5k" scope="settings">Race predictor 5k</string>
     <string id="settings_pulse_ox_2" scope="settings">Pulse OX</string>
-    <string id="settings_solar_input" scope="settings">Solar Input</string>
     <string id="settings_press_middle_clock" scope="settings">Press middle (clock) to open:</string>
     <string id="settings_press_bottom_left" scope="settings">Press bottom left to open:</string>
     <string id="settings_press_bottom_center" scope="settings">Press bottom center to open:</string>

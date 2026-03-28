@@ -680,7 +680,7 @@
             <listEntry value="23">@Strings.settings_body_battery_2</listEntry>
             <listEntry value="27">@Strings.settings_race_predictor_5k</listEntry>
             <listEntry value="35">@Strings.settings_pulse_ox_2</listEntry>
-            <listEntry value="37">@Strings.settings_solar_input</listEntry>
+            <listEntry value="37">@Strings.settings_solar_intensity</listEntry>
         </settingConfig>
     </setting>
 
@@ -707,7 +707,7 @@
             <listEntry value="23">@Strings.settings_body_battery_2</listEntry>
             <listEntry value="27">@Strings.settings_race_predictor_5k</listEntry>
             <listEntry value="35">@Strings.settings_pulse_ox_2</listEntry>
-            <listEntry value="37">@Strings.settings_solar_input</listEntry>
+            <listEntry value="37">@Strings.settings_solar_intensity</listEntry>
         </settingConfig>
     </setting>
 
@@ -734,7 +734,7 @@
             <listEntry value="23">@Strings.settings_body_battery_2</listEntry>
             <listEntry value="27">@Strings.settings_race_predictor_5k</listEntry>
             <listEntry value="35">@Strings.settings_pulse_ox_2</listEntry>
-            <listEntry value="37">@Strings.settings_solar_input</listEntry>
+            <listEntry value="37">@Strings.settings_solar_intensity</listEntry>
         </settingConfig>
     </setting>
 
@@ -761,7 +761,7 @@
             <listEntry value="23">@Strings.settings_body_battery_2</listEntry>
             <listEntry value="27">@Strings.settings_race_predictor_5k</listEntry>
             <listEntry value="35">@Strings.settings_pulse_ox_2</listEntry>
-            <listEntry value="37">@Strings.settings_solar_input</listEntry>
+            <listEntry value="37">@Strings.settings_solar_intensity</listEntry>
         </settingConfig>
     </setting>
 
@@ -788,7 +788,7 @@
             <listEntry value="23">@Strings.settings_body_battery_2</listEntry>
             <listEntry value="27">@Strings.settings_race_predictor_5k</listEntry>
             <listEntry value="35">@Strings.settings_pulse_ox_2</listEntry>
-            <listEntry value="37">@Strings.settings_solar_input</listEntry>
+            <listEntry value="37">@Strings.settings_solar_intensity</listEntry>
         </settingConfig>
     </setting>
 

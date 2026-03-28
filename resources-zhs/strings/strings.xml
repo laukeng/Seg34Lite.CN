@@ -270,8 +270,8 @@
     <string id="settings_temperature_sensor_history" scope="settings">温度传感器历史</string>
     <string id="settings_line_1_above_clock" scope="settings">时钟上方第一行显示：</string>
     <string id="settings_date" scope="settings">日期</string>
-    <string id="settings_weather_conditions_precipitation" scope="settings">天气状况（降水概率）</string>
-    <string id="settings_weather_conditions_temperature" scope="settings">天气状况 最低～最高温度</string>
+    <string id="settings_weather_conditions_precipitation" scope="settings">天气状况，降水概率</string>
+    <string id="settings_weather_conditions_temperature" scope="settings">天气状况，最低～最高温度</string>
     <string id="settings_temperature_humidity_high_low" scope="settings">温度，湿度，最低～最高温度</string>
     <string id="settings_steps_day" scope="settings">每日步数</string>
     <string id="settings_calories_kcal_day_2" scope="settings">每日卡路里（千卡）</string>
@@ -332,7 +332,6 @@
     <string id="settings_body_battery_2" scope="settings">身体电量</string>
     <string id="settings_race_predictor_5k" scope="settings">5公里比赛预测</string>
     <string id="settings_pulse_ox_2" scope="settings">血氧</string>
-    <string id="settings_solar_input" scope="settings">太阳能输入</string>
     <string id="settings_press_middle_clock" scope="settings">按中间（时钟）打开：</string>
     <string id="settings_press_bottom_left" scope="settings">按左下角打开：</string>
     <string id="settings_press_bottom_center" scope="settings">按底部中央打开：</string>
