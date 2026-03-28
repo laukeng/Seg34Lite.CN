@@ -124,7 +124,6 @@
             <listEntry value="4">@Strings.settings_floors_climbed_day</listEntry>
             <listEntry value="5">@Strings.settings_meters_climbed_day</listEntry>
             <listEntry value="17">@Strings.settings_steps_day</listEntry>
-            <listEntry value="19">@Strings.settings_wheelchair_pushes_day</listEntry>
             <listEntry value="6">@Strings.settings_time_to_recovery</listEntry>
             <listEntry value="7">@Strings.settings_vo2_max_running</listEntry>
             <listEntry value="8">@Strings.settings_vo2_max_cycling</listEntry>
@@ -140,8 +139,6 @@
             <listEntry value="14">@Strings.settings_body_battery</listEntry>
             <listEntry value="39">@Strings.settings_sunrise_time</listEntry>
             <listEntry value="40">@Strings.settings_sunset_time</listEntry>
-            <listEntry value="55">@Strings.settings_next_sun_event</listEntry>
-            <listEntry value="75">@Strings.settings_hrs_next_sun_event</listEntry>
             <listEntry value="16">@Strings.settings_alternative_timezone_1</listEntry>
             <listEntry value="41">@Strings.settings_alternative_timezone_2</listEntry>
             <listEntry value="26">@Strings.settings_barometric_pressure_raw</listEntry>
@@ -152,7 +149,6 @@
             <listEntry value="37">@Strings.settings_solar_intensity</listEntry>
             <listEntry value="38">@Strings.settings_sensor_temperature</listEntry>
             <listEntry value="42">@Strings.settings_alarms_count</listEntry>
-            <listEntry value="57">@Strings.settings_next_calendar_event</listEntry>
         </settingConfig>
     </setting>
 
@@ -170,7 +166,6 @@
             <listEntry value="4">@Strings.settings_floors_climbed_day</listEntry>
             <listEntry value="5">@Strings.settings_meters_climbed_day</listEntry>
             <listEntry value="17">@Strings.settings_steps_day</listEntry>
-            <listEntry value="19">@Strings.settings_wheelchair_pushes_day</listEntry>
             <listEntry value="6">@Strings.settings_time_to_recovery</listEntry>
             <listEntry value="7">@Strings.settings_vo2_max_running</listEntry>
             <listEntry value="8">@Strings.settings_vo2_max_cycling</listEntry>
@@ -186,8 +181,6 @@
             <listEntry value="14">@Strings.settings_body_battery</listEntry>
             <listEntry value="39">@Strings.settings_sunrise_time</listEntry>
             <listEntry value="40">@Strings.settings_sunset_time</listEntry>
-            <listEntry value="55">@Strings.settings_next_sun_event</listEntry>
-            <listEntry value="75">@Strings.settings_hrs_next_sun_event</listEntry>
             <listEntry value="16">@Strings.settings_alternative_timezone_1</listEntry>
             <listEntry value="41">@Strings.settings_alternative_timezone_2</listEntry>
             <listEntry value="26">@Strings.settings_barometric_pressure_raw</listEntry>
@@ -198,7 +191,6 @@
             <listEntry value="37">@Strings.settings_solar_intensity</listEntry>
             <listEntry value="38">@Strings.settings_sensor_temperature</listEntry>
             <listEntry value="42">@Strings.settings_alarms_count</listEntry>
-            <listEntry value="57">@Strings.settings_next_calendar_event</listEntry>
         </settingConfig>
     </setting>
 
@@ -222,14 +214,12 @@
             <listEntry value="99">@Strings.settings_lunar_calendar</listEntry>
             <listEntry value="20">@Strings.settings_weather_conditions_precipitation</listEntry>
             <listEntry value="70">@Strings.settings_weather_conditions_temperature</listEntry>
+            <listEntry value="51">@Strings.settings_temperature_humidity_high_low</listEntry>
             <listEntry value="17">@Strings.settings_steps_day</listEntry>
             <listEntry value="11">@Strings.settings_calories_kcal_day_2</listEntry>
             <listEntry value="58">@Strings.settings_active_total_calories</listEntry>
             <listEntry value="12">@Strings.settings_altitude_m_2</listEntry>
             <listEntry value="15">@Strings.settings_altitude_ft_2</listEntry>
-            <listEntry value="25">@Strings.settings_training_status</listEntry>
-            <listEntry value="56">@Strings.settings_military_date_time</listEntry>
-            <listEntry value="57">@Strings.settings_next_calendar_event</listEntry>
         </settingConfig>
     </setting>
 
@@ -238,16 +228,14 @@
             <listEntry value="-2">@Strings.settings_hidden</listEntry>
             <listEntry value="-1">@Strings.settings_date</listEntry>
             <listEntry value="99">@Strings.settings_lunar_calendar</listEntry>
-            <listEntry value="20">@Strings.settings_weather_conditions_precipitation_chance</listEntry>
+            <listEntry value="20">@Strings.settings_weather_conditions_precipitation</listEntry>
             <listEntry value="70">@Strings.settings_weather_conditions_temperature</listEntry>
+            <listEntry value="51">@Strings.settings_temperature_humidity_high_low</listEntry>
             <listEntry value="17">@Strings.settings_steps_day</listEntry>
             <listEntry value="11">@Strings.settings_calories_kcal_day_2</listEntry>
             <listEntry value="58">@Strings.settings_active_total_calories</listEntry>
             <listEntry value="12">@Strings.settings_altitude_m_2</listEntry>
             <listEntry value="15">@Strings.settings_altitude_ft_2</listEntry>
-            <listEntry value="25">@Strings.settings_training_status</listEntry>
-            <listEntry value="56">@Strings.settings_military_date_time</listEntry>
-            <listEntry value="57">@Strings.settings_next_calendar_event</listEntry>
         </settingConfig>
     </setting>
 
@@ -256,16 +244,14 @@
             <listEntry value="-2">@Strings.settings_hidden</listEntry>
             <listEntry value="-1">@Strings.settings_date</listEntry>
             <listEntry value="99">@Strings.settings_lunar_calendar</listEntry>
-            <listEntry value="20">@Strings.settings_weather_conditions_precipitation_chance</listEntry>
+            <listEntry value="20">@Strings.settings_weather_conditions_precipitation</listEntry>
             <listEntry value="70">@Strings.settings_weather_conditions_temperature</listEntry>
+            <listEntry value="51">@Strings.settings_temperature_humidity_high_low</listEntry>
             <listEntry value="17">@Strings.settings_steps_day</listEntry>
             <listEntry value="11">@Strings.settings_calories_kcal_day_2</listEntry>
             <listEntry value="58">@Strings.settings_active_total_calories</listEntry>
             <listEntry value="12">@Strings.settings_altitude_m_2</listEntry>
             <listEntry value="15">@Strings.settings_altitude_ft_2</listEntry>
-            <listEntry value="25">@Strings.settings_training_status</listEntry>
-            <listEntry value="56">@Strings.settings_military_date_time</listEntry>
-            <listEntry value="57">@Strings.settings_next_calendar_event</listEntry>
         </settingConfig>
     </setting>
 
@@ -331,8 +317,6 @@
             <listEntry value="14">@Strings.settings_body_battery</listEntry>
             <listEntry value="39">@Strings.settings_sunrise_time</listEntry>
             <listEntry value="40">@Strings.settings_sunset_time</listEntry>
-            <listEntry value="55">@Strings.settings_next_sun_event</listEntry>
-            <listEntry value="75">@Strings.settings_hrs_next_sun_event</listEntry>
             <listEntry value="16">@Strings.settings_alternative_timezone_1</listEntry>
             <listEntry value="41">@Strings.settings_alternative_timezone_2</listEntry>
             <listEntry value="26">@Strings.settings_barometric_pressure_raw</listEntry>
@@ -343,7 +327,6 @@
             <listEntry value="37">@Strings.settings_solar_intensity</listEntry>
             <listEntry value="38">@Strings.settings_sensor_temperature</listEntry>
             <listEntry value="42">@Strings.settings_alarms_count</listEntry>
-            <listEntry value="57">@Strings.settings_next_calendar_event</listEntry>
         </settingConfig>
     </setting>
 
@@ -376,8 +359,6 @@
             <listEntry value="14">@Strings.settings_body_battery</listEntry>
             <listEntry value="39">@Strings.settings_sunrise_time</listEntry>
             <listEntry value="40">@Strings.settings_sunset_time</listEntry>
-            <listEntry value="55">@Strings.settings_next_sun_event</listEntry>
-            <listEntry value="75">@Strings.settings_hrs_next_sun_event</listEntry>
             <listEntry value="16">@Strings.settings_alternative_timezone_1</listEntry>
             <listEntry value="41">@Strings.settings_alternative_timezone_2</listEntry>
             <listEntry value="26">@Strings.settings_barometric_pressure_raw</listEntry>
@@ -388,7 +369,6 @@
             <listEntry value="37">@Strings.settings_solar_intensity</listEntry>
             <listEntry value="38">@Strings.settings_sensor_temperature</listEntry>
             <listEntry value="42">@Strings.settings_alarms_count</listEntry>
-            <listEntry value="57">@Strings.settings_next_calendar_event</listEntry>
         </settingConfig>
     </setting>
 
@@ -421,8 +401,6 @@
             <listEntry value="14">@Strings.settings_body_battery</listEntry>
             <listEntry value="39">@Strings.settings_sunrise_time</listEntry>
             <listEntry value="40">@Strings.settings_sunset_time</listEntry>
-            <listEntry value="55">@Strings.settings_next_sun_event</listEntry>
-            <listEntry value="75">@Strings.settings_hrs_next_sun_event</listEntry>
             <listEntry value="16">@Strings.settings_alternative_timezone_1</listEntry>
             <listEntry value="41">@Strings.settings_alternative_timezone_2</listEntry>
             <listEntry value="26">@Strings.settings_barometric_pressure_raw</listEntry>
@@ -433,7 +411,6 @@
             <listEntry value="37">@Strings.settings_solar_intensity</listEntry>
             <listEntry value="38">@Strings.settings_sensor_temperature</listEntry>
             <listEntry value="42">@Strings.settings_alarms_count</listEntry>
-            <listEntry value="57">@Strings.settings_next_calendar_event</listEntry>
         </settingConfig>
     </setting>
 
@@ -466,8 +443,6 @@
             <listEntry value="14">@Strings.settings_body_battery</listEntry>
             <listEntry value="39">@Strings.settings_sunrise_time</listEntry>
             <listEntry value="40">@Strings.settings_sunset_time</listEntry>
-            <listEntry value="55">@Strings.settings_next_sun_event</listEntry>
-            <listEntry value="75">@Strings.settings_hrs_next_sun_event</listEntry>
             <listEntry value="16">@Strings.settings_alternative_timezone_1</listEntry>
             <listEntry value="41">@Strings.settings_alternative_timezone_2</listEntry>
             <listEntry value="26">@Strings.settings_barometric_pressure_raw</listEntry>
@@ -478,7 +453,6 @@
             <listEntry value="37">@Strings.settings_solar_intensity</listEntry>
             <listEntry value="38">@Strings.settings_sensor_temperature</listEntry>
             <listEntry value="42">@Strings.settings_alarms_count</listEntry>
-            <listEntry value="57">@Strings.settings_next_calendar_event</listEntry>
         </settingConfig>
     </setting>
 
@@ -498,14 +472,12 @@
             <listEntry value="29">@Strings.settings_active_calories_kcal_day</listEntry>
             <listEntry value="10">@Strings.settings_heart_rate</listEntry>
             <listEntry value="76">@Strings.settings_resting_heart_rate</listEntry>
-            <listEntry value="19">@Strings.settings_wheelchair_pushes_day</listEntry>
             <listEntry value="12">@Strings.settings_altitude_m</listEntry>
             <listEntry value="15">@Strings.settings_altitude_ft</listEntry>
             <listEntry value="26">@Strings.settings_barometric_pressure_raw</listEntry>
             <listEntry value="30">@Strings.settings_barometric_pressure_sea</listEntry>
             <listEntry value="16">@Strings.settings_alternative_timezone_1</listEntry>
             <listEntry value="41">@Strings.settings_alternative_timezone_2</listEntry>
-            <listEntry value="57">@Strings.settings_next_calendar_event_time</listEntry>
         </settingConfig>
     </setting>
 
@@ -525,14 +497,12 @@
             <listEntry value="29">@Strings.settings_active_calories_kcal_day</listEntry>
             <listEntry value="10">@Strings.settings_heart_rate</listEntry>
             <listEntry value="76">@Strings.settings_resting_heart_rate</listEntry>
-            <listEntry value="19">@Strings.settings_wheelchair_pushes_day</listEntry>
             <listEntry value="12">@Strings.settings_altitude_m</listEntry>
             <listEntry value="15">@Strings.settings_altitude_ft</listEntry>
             <listEntry value="26">@Strings.settings_barometric_pressure_raw</listEntry>
             <listEntry value="30">@Strings.settings_barometric_pressure_sea</listEntry>
             <listEntry value="16">@Strings.settings_alternative_timezone_1</listEntry>
             <listEntry value="41">@Strings.settings_alternative_timezone_2</listEntry>
-            <listEntry value="57">@Strings.settings_next_calendar_event_time</listEntry>
         </settingConfig>
     </setting>
 
@@ -582,11 +552,8 @@
             <listEntry value="17">@Strings.settings_steps_day</listEntry>
             <listEntry value="11">@Strings.settings_calories_kcal_day</listEntry>
             <listEntry value="29">@Strings.settings_active_calories_kcal_day</listEntry>
-            <listEntry value="25">@Strings.settings_training_status</listEntry>
             <listEntry value="16">@Strings.settings_alternative_timezone_1</listEntry>
             <listEntry value="41">@Strings.settings_alternative_timezone_2</listEntry>
-            <listEntry value="56">@Strings.settings_military_date_time</listEntry>
-            <listEntry value="57">@Strings.settings_next_calendar_event_time</listEntry>
         </settingConfig>
     </setting>
 
@@ -619,8 +586,6 @@
             <listEntry value="14">@Strings.settings_body_battery</listEntry>
             <listEntry value="39">@Strings.settings_sunrise_time</listEntry>
             <listEntry value="40">@Strings.settings_sunset_time</listEntry>
-            <listEntry value="55">@Strings.settings_next_sun_event</listEntry>
-            <listEntry value="75">@Strings.settings_hrs_next_sun_event</listEntry>
             <listEntry value="16">@Strings.settings_alternative_timezone_1</listEntry>
             <listEntry value="41">@Strings.settings_alternative_timezone_2</listEntry>
             <listEntry value="26">@Strings.settings_barometric_pressure_raw</listEntry>
@@ -631,7 +596,6 @@
             <listEntry value="37">@Strings.settings_solar_intensity</listEntry>
             <listEntry value="38">@Strings.settings_sensor_temperature</listEntry>
             <listEntry value="42">@Strings.settings_alarms_count</listEntry>
-            <listEntry value="57">@Strings.settings_next_calendar_event</listEntry>
         </settingConfig>
     </setting>
 
@@ -714,7 +678,6 @@
             <listEntry value="21">@Strings.settings_recovery_time</listEntry>
             <listEntry value="22">@Strings.settings_stress</listEntry>
             <listEntry value="23">@Strings.settings_body_battery_2</listEntry>
-            <listEntry value="26">@Strings.settings_training_status_2</listEntry>
             <listEntry value="27">@Strings.settings_race_predictor_5k</listEntry>
             <listEntry value="35">@Strings.settings_pulse_ox_2</listEntry>
             <listEntry value="37">@Strings.settings_solar_input</listEntry>
@@ -742,7 +705,6 @@
             <listEntry value="21">@Strings.settings_recovery_time</listEntry>
             <listEntry value="22">@Strings.settings_stress</listEntry>
             <listEntry value="23">@Strings.settings_body_battery_2</listEntry>
-            <listEntry value="26">@Strings.settings_training_status_2</listEntry>
             <listEntry value="27">@Strings.settings_race_predictor_5k</listEntry>
             <listEntry value="35">@Strings.settings_pulse_ox_2</listEntry>
             <listEntry value="37">@Strings.settings_solar_input</listEntry>
@@ -770,7 +732,6 @@
             <listEntry value="21">@Strings.settings_recovery_time</listEntry>
             <listEntry value="22">@Strings.settings_stress</listEntry>
             <listEntry value="23">@Strings.settings_body_battery_2</listEntry>
-            <listEntry value="26">@Strings.settings_training_status_2</listEntry>
             <listEntry value="27">@Strings.settings_race_predictor_5k</listEntry>
             <listEntry value="35">@Strings.settings_pulse_ox_2</listEntry>
             <listEntry value="37">@Strings.settings_solar_input</listEntry>
@@ -798,7 +759,6 @@
             <listEntry value="21">@Strings.settings_recovery_time</listEntry>
             <listEntry value="22">@Strings.settings_stress</listEntry>
             <listEntry value="23">@Strings.settings_body_battery_2</listEntry>
-            <listEntry value="26">@Strings.settings_training_status_2</listEntry>
             <listEntry value="27">@Strings.settings_race_predictor_5k</listEntry>
             <listEntry value="35">@Strings.settings_pulse_ox_2</listEntry>
             <listEntry value="37">@Strings.settings_solar_input</listEntry>
@@ -826,7 +786,6 @@
             <listEntry value="21">@Strings.settings_recovery_time</listEntry>
             <listEntry value="22">@Strings.settings_stress</listEntry>
             <listEntry value="23">@Strings.settings_body_battery_2</listEntry>
-            <listEntry value="26">@Strings.settings_training_status_2</listEntry>
             <listEntry value="27">@Strings.settings_race_predictor_5k</listEntry>
             <listEntry value="35">@Strings.settings_pulse_ox_2</listEntry>
             <listEntry value="37">@Strings.settings_solar_input</listEntry>

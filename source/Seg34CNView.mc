@@ -1899,19 +1899,6 @@ class Seg34CNView extends WatchUi.WatchFace {
     }
 
     (:HighMem)
-    hidden function getTrainingStatusVal() as String {
-        if (hasComplications) {
-            try {
-                var complication = Complications.getComplication(new Id(Complications.COMPLICATION_TYPE_TRAINING_STATUS));
-                if (complication != null && complication.value != null) { return complication.value.toUpper(); }
-            } catch(e) {}
-        }
-        return "";
-    }
-    (:LowMem)
-    hidden function getTrainingStatusVal() as String { return ""; }
-
-    (:HighMem)
     hidden function getPulseOxVal(numberFormat as String) as String {
         if (hasComplications) {
             try {
@@ -2102,12 +2089,12 @@ class Seg34CNView extends WatchUi.WatchFace {
             if(activityInfo.distance != null) {
                 val = (activityInfo.distance / 100).format(numberFormat);
             }
+        } else if(complicationType == 20) { // Weather condition with precipitation
+            val = getWeatherCondition(true);
         } else if(complicationType == 21 || complicationType == 22) { // Weekly run distance
             val = getWeeklyDistanceFromComplication(true, propIsMetricDistance ? 0.001 : 0.000621371, width);
         } else if(complicationType == 23 || complicationType == 24) { // Weekly bike distance
             val = getWeeklyDistanceFromComplication(false, propIsMetricDistance ? 0.001 : 0.000621371, width);
-        } else if(complicationType == 25) { // Training status
-            val = getTrainingStatusVal();
         } else if(complicationType == 26) { // Raw Barometric pressure (hPA)
             var info = Activity.getActivityInfo();
             if (info has :rawAmbientPressure && info.rawAmbientPressure != null) {
@@ -2175,6 +2162,11 @@ class Seg34CNView extends WatchUi.WatchFace {
             val = secondaryTimezone(propTzOffset2, width);
         } else if(complicationType == 42) { // Alarms
             val = System.getDeviceSettings().alarmCount.format(numberFormat);
+        } else if(complicationType == 51) { // Temperature, Humidity, High/Low
+            var temp = getTemperature();
+            var humidity = getHumidity();
+            var highlow = getHighLow();
+            val = joinFour(temp, humidity, highlow, "");
         } else if(complicationType == 58) { // Active / Total calories
             if(activityInfo == null) { activityInfo = ActivityMonitor.getInfo(); }
             var rest_calories = getRestCalories();
@@ -2340,7 +2332,6 @@ class Seg34CNView extends WatchUi.WatchFace {
             case 23:
                 if(propIsMetricDistance) { return formatLabel(Rez.Strings.LABEL_WKM_1, Rez.Strings.LABEL_WBIKEKM_2, Rez.Strings.LABEL_WBIKEKM_3, labelSize); }
                 return formatLabel(Rez.Strings.LABEL_WMI_1, Rez.Strings.LABEL_WBIKEMI_2, Rez.Strings.LABEL_WBIKEMI_3, labelSize);
-            case 25: return Application.loadResource(Rez.Strings.LABEL_TRAINING);
             case 26: return Application.loadResource(Rez.Strings.LABEL_PRESSURE);
             case 29: return formatLabel(Rez.Strings.LABEL_ACAL_1, Rez.Strings.LABEL_ACAL_2, Rez.Strings.LABEL_ACAL_3, labelSize);
             case 30: return Application.loadResource(Rez.Strings.LABEL_PRESSURE);
@@ -2356,10 +2347,8 @@ class Seg34CNView extends WatchUi.WatchFace {
             case 39: return formatLabel(Rez.Strings.LABEL_DAWN_1, Rez.Strings.LABEL_DAWN_2, Rez.Strings.LABEL_DAWN_2, labelSize);
             case 40: return formatLabel(Rez.Strings.LABEL_DUSK_1, Rez.Strings.LABEL_DUSK_2, Rez.Strings.LABEL_DUSK_2, labelSize);
             case 42: return formatLabel(Rez.Strings.LABEL_ALARM_1, Rez.Strings.LABEL_ALARM_2, Rez.Strings.LABEL_ALARM_2, labelSize);
-            case 55: return formatLabel(Rez.Strings.LABEL_NEXTSUN_1, Rez.Strings.LABEL_NEXTSUN_2, Rez.Strings.LABEL_NEXTSUN_3, labelSize);
             case 57: return formatLabel(Rez.Strings.LABEL_NEXTCAL_1, Rez.Strings.LABEL_NEXTCAL_2, Rez.Strings.LABEL_NEXTCAL_3, labelSize);
             case 59: return formatLabel(Rez.Strings.LABEL_OX_1, Rez.Strings.LABEL_OX_2, Rez.Strings.LABEL_OX_2, labelSize);
-            case 75: return formatLabel(Rez.Strings.LABEL_HRS_NEXT_SUN_EVENT_1, Rez.Strings.LABEL_HRS_NEXT_SUN_EVENT_1, Rez.Strings.LABEL_HRS_NEXT_SUN_EVENT_3, labelSize);
             case 76: return formatLabel(Rez.Strings.LABEL_RHR_1, Rez.Strings.LABEL_RHR_2, Rez.Strings.LABEL_RHR_3, labelSize);
         }
         return "";
@@ -2403,7 +2392,6 @@ class Seg34CNView extends WatchUi.WatchFace {
             case 23:
                 if(propIsMetricDistance) { return formatLabel(Rez.Strings.LABEL_WKM_1, Rez.Strings.LABEL_WBIKEKM_2, labelSize); }
                 return formatLabel(Rez.Strings.LABEL_WMI_1, Rez.Strings.LABEL_WBIKEMI_2, labelSize);
-            case 25: return Application.loadResource(Rez.Strings.LABEL_TRAINING);
             case 26: return Application.loadResource(Rez.Strings.LABEL_PRESSURE);
             case 29: return formatLabel(Rez.Strings.LABEL_ACAL_1, Rez.Strings.LABEL_ACAL_2, labelSize);
             case 30: return Application.loadResource(Rez.Strings.LABEL_PRESSURE);
@@ -2420,11 +2408,8 @@ class Seg34CNView extends WatchUi.WatchFace {
             case 39: return formatLabel(Rez.Strings.LABEL_DAWN_1, Rez.Strings.LABEL_DAWN_2, labelSize);
             case 40: return formatLabel(Rez.Strings.LABEL_DUSK_1, Rez.Strings.LABEL_DUSK_2, labelSize);
             case 42: return formatLabel(Rez.Strings.LABEL_ALARM_1, Rez.Strings.LABEL_ALARM_2, labelSize);
-            case 55: return formatLabel(Rez.Strings.LABEL_NEXTSUN_1, Rez.Strings.LABEL_NEXTSUN_2, labelSize);
             case 57: return formatLabel(Rez.Strings.LABEL_NEXTCAL_1, Rez.Strings.LABEL_NEXTCAL_2, labelSize);
             case 59: return formatLabel(Rez.Strings.LABEL_OX_1, Rez.Strings.LABEL_OX_2, labelSize);
-            case 62: return formatLabel(Rez.Strings.LABEL_ACC_1, Rez.Strings.LABEL_ACC_2, labelSize);
-            case 75: return formatLabel(Rez.Strings.LABEL_HRS_NEXT_SUN_EVENT_1, Rez.Strings.LABEL_HRS_NEXT_SUN_EVENT_1, labelSize);
             case 76: return formatLabel(Rez.Strings.LABEL_RHR_1, Rez.Strings.LABEL_RHR_2, labelSize);
         }
         return "";
@@ -2579,6 +2564,14 @@ class Seg34CNView extends WatchUi.WatchFace {
         var ret = weatherStrings[idx];
 
         return Application.loadResource(ret) + perp;
+    }
+
+    hidden function getHumidity() as String {
+        var ret = "";
+        if(weatherCondition != null and weatherCondition.relativeHumidity != null) {
+            ret = weatherCondition.relativeHumidity.format("%d") + "%";
+        }
+        return ret;
     }
 
     hidden function getTemperature() as String {

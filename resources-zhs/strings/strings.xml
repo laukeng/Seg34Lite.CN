@@ -6,9 +6,7 @@
     <string id="UNIT_FT">FT</string>
     <string id="UNIT_STEPS">STEPS</string>
     <string id="UNIT_PUSHES">PUSHES</string>
-    <string id="LABEL_FL">FL</string>
     <string id="LABEL_NA">N/A</string>
-    <string id="LABEL_POS_NA">POSITION N/A</string>
 
     <string id="WEATHER_0">晴朗</string>
     <string id="WEATHER_1">局部多云</string>
@@ -124,10 +122,7 @@
     <string id="LABEL_WBIKEKM_3">WEEK BIKE KM</string>
     <string id="LABEL_WBIKEMI_2">W BIKE MI</string>
     <string id="LABEL_WBIKEMI_3">WEEK BIKE MI</string>
-    <string id="LABEL_TRAINING">TRAINING:</string>
     <string id="LABEL_PRESSURE">PRESSURE:</string>
-    <string id="LABEL_KG_1">KG</string>
-    <string id="LABEL_LBS_1">LBS</string>
     <string id="LABEL_ACAL_1">A CAL</string>
     <string id="LABEL_ACAL_2">ACT. CAL</string>
     <string id="LABEL_ACAL_3">ACT. CALORIES</string>
@@ -155,25 +150,11 @@
     <string id="LABEL_DUSK_2">SUNSET</string>
     <string id="LABEL_ALARM_1">ALARM</string>
     <string id="LABEL_ALARM_2">ALARMS</string>
-    <string id="LABEL_HIGH_1">HIGH</string>
-    <string id="LABEL_HIGH_2">DAILY HIGH</string>
-    <string id="LABEL_LOW_1">LOW</string>
-    <string id="LABEL_LOW_2">DAILY LOW</string>
-    <string id="LABEL_TEMP_3">TEMPERATURE</string>
-    <string id="LABEL_PRECIP_1">PRECIP</string>
-    <string id="LABEL_PRECIP_3">PRECIP</string>
-    <string id="LABEL_NEXTSUN_1">SUN</string>
-    <string id="LABEL_NEXTSUN_2">NEXT SUN</string>
-    <string id="LABEL_NEXTSUN_3">NEXT SUN EVNT</string>
     <string id="LABEL_NEXTCAL_1">CAL</string>
     <string id="LABEL_NEXTCAL_2">NEXT CAL</string>
     <string id="LABEL_NEXTCAL_3">NEXT CAL EVNT</string>
     <string id="LABEL_OX_1">OX</string>
     <string id="LABEL_OX_2">PULSE OX</string>
-    <string id="LABEL_ACC_1">ACC</string>
-    <string id="LABEL_ACC_2">POS ACC</string>
-    <string id="LABEL_HRS_NEXT_SUN_EVENT_1">H SUN</string>
-    <string id="LABEL_HRS_NEXT_SUN_EVENT_3">HRS SUN</string>
     <string id="LABEL_RHR_1">RHR</string>
     <string id="LABEL_RHR_2">REST HR</string>
     <string id="LABEL_RHR_3">RESTING HR</string>
@@ -291,20 +272,13 @@
     <string id="settings_date" scope="settings">日期</string>
     <string id="settings_weather_conditions_precipitation" scope="settings">天气状况（降水概率）</string>
     <string id="settings_weather_conditions_temperature" scope="settings">天气状况 最低～最高温度</string>
-    <string id="settings_daily_high_temperature" scope="settings">每日最高温度</string>
-    <string id="settings_daily_low_temperature" scope="settings">每日最低温度</string>
-    <string id="settings_temperature" scope="settings">温度</string>
-    <string id="settings_chance_of_precipitation" scope="settings">降水概率</string>
+    <string id="settings_temperature_humidity_high_low" scope="settings">温度，湿度，最低～最高温度</string>
     <string id="settings_steps_day" scope="settings">每日步数</string>
-    <string id="settings_wheelchair_pushes_day" scope="settings">每日轮椅推动次数</string>
     <string id="settings_calories_kcal_day_2" scope="settings">每日卡路里（千卡）</string>
     <string id="settings_active_total_calories" scope="settings">每日活跃/总卡路里（千卡）</string>
     <string id="settings_altitude_m_2" scope="settings">海拔（米）</string>
     <string id="settings_altitude_ft_2" scope="settings">海拔（英尺）</string>
-    <string id="settings_training_status" scope="settings">训练状态</string>
-    <string id="settings_military_date_time" scope="settings">军事日期时间组（UTC）</string>
     <string id="settings_line_2_above_clock" scope="settings">时钟上方第二行显示：</string>
-    <string id="settings_weather_conditions_precipitation_chance" scope="settings">天气状况 + 降水概率</string>
     <string id="settings_line_below_clock" scope="settings">时钟下方显示：</string>
     <string id="settings_bottom_field_layout" scope="settings">底部字段布局（每个字段的位数）</string>
     <string id="settings_auto_default_layout" scope="settings">自动 - 根据屏幕大小默认布局</string>
@@ -356,7 +330,6 @@
     <string id="settings_recovery_time" scope="settings">恢复时间</string>
     <string id="settings_stress" scope="settings">压力</string>
     <string id="settings_body_battery_2" scope="settings">身体电量</string>
-    <string id="settings_training_status_2" scope="settings">训练状态</string>
     <string id="settings_race_predictor_5k" scope="settings">5公里比赛预测</string>
     <string id="settings_pulse_ox_2" scope="settings">血氧</string>
     <string id="settings_solar_input" scope="settings">太阳能输入</string>
