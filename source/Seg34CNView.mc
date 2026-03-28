@@ -1945,8 +1945,6 @@ class Seg34CNView extends WatchUi.WatchFace {
             unit = Application.loadResource(Rez.Strings.UNIT_FT);
         } else if(complicationType == 17) { // Steps / day
             unit = Application.loadResource(Rez.Strings.UNIT_STEPS);
-        } else if(complicationType == 19) { // Wheelchair pushes
-            unit = Application.loadResource(Rez.Strings.UNIT_PUSHES);
         } else if(complicationType == 29) { // Active calories / day
             unit = Application.loadResource(Rez.Strings.UNIT_KCAL);
         } else if(complicationType == 58) { // Active/Total calories / day
@@ -2320,7 +2318,6 @@ class Seg34CNView extends WatchUi.WatchFace {
             case 15: return formatLabel(Rez.Strings.LABEL_ALT_1, Rez.Strings.LABEL_ALT_2, Rez.Strings.LABEL_ALTFT_3, labelSize);
             case 17: return Application.loadResource(Rez.Strings.LABEL_STEPS);
             case 18: return formatLabel(Rez.Strings.LABEL_DIST_1, Rez.Strings.LABEL_DIST_2, Rez.Strings.LABEL_DIST_3, labelSize);
-            case 19: return Application.loadResource(Rez.Strings.LABEL_PUSHES);
             case 20: return "";
             case 22:
             case 77:
@@ -2335,7 +2332,6 @@ class Seg34CNView extends WatchUi.WatchFace {
             case 26: return Application.loadResource(Rez.Strings.LABEL_PRESSURE);
             case 29: return formatLabel(Rez.Strings.LABEL_ACAL_1, Rez.Strings.LABEL_ACAL_2, Rez.Strings.LABEL_ACAL_3, labelSize);
             case 30: return Application.loadResource(Rez.Strings.LABEL_PRESSURE);
-            case 31: return Application.loadResource(Rez.Strings.LABEL_WEEK);
             case 33:
             case 32:
                 if(propIsMetricDistance) { return formatLabel(Rez.Strings.LABEL_WKM_1, Rez.Strings.LABEL_WDISTKM_2, Rez.Strings.LABEL_WDISTKM_3, labelSize); }
@@ -2347,7 +2343,6 @@ class Seg34CNView extends WatchUi.WatchFace {
             case 39: return formatLabel(Rez.Strings.LABEL_DAWN_1, Rez.Strings.LABEL_DAWN_2, Rez.Strings.LABEL_DAWN_2, labelSize);
             case 40: return formatLabel(Rez.Strings.LABEL_DUSK_1, Rez.Strings.LABEL_DUSK_2, Rez.Strings.LABEL_DUSK_2, labelSize);
             case 42: return formatLabel(Rez.Strings.LABEL_ALARM_1, Rez.Strings.LABEL_ALARM_2, Rez.Strings.LABEL_ALARM_2, labelSize);
-            case 57: return formatLabel(Rez.Strings.LABEL_NEXTCAL_1, Rez.Strings.LABEL_NEXTCAL_2, Rez.Strings.LABEL_NEXTCAL_3, labelSize);
             case 59: return formatLabel(Rez.Strings.LABEL_OX_1, Rez.Strings.LABEL_OX_2, Rez.Strings.LABEL_OX_2, labelSize);
             case 76: return formatLabel(Rez.Strings.LABEL_RHR_1, Rez.Strings.LABEL_RHR_2, Rez.Strings.LABEL_RHR_3, labelSize);
         }
@@ -2380,7 +2375,6 @@ class Seg34CNView extends WatchUi.WatchFace {
             case 15: return formatLabel(Rez.Strings.LABEL_ALT_1, Rez.Strings.LABEL_ALT_2, labelSize);
             case 17: return Application.loadResource(Rez.Strings.LABEL_STEPS);
             case 18: return formatLabel(Rez.Strings.LABEL_DIST_1, Rez.Strings.LABEL_DIST_2, labelSize);
-            case 19: return Application.loadResource(Rez.Strings.LABEL_PUSHES);
             case 20: return "";
             case 22:
             case 77:
@@ -2395,7 +2389,6 @@ class Seg34CNView extends WatchUi.WatchFace {
             case 26: return Application.loadResource(Rez.Strings.LABEL_PRESSURE);
             case 29: return formatLabel(Rez.Strings.LABEL_ACAL_1, Rez.Strings.LABEL_ACAL_2, labelSize);
             case 30: return Application.loadResource(Rez.Strings.LABEL_PRESSURE);
-            case 31: return Application.loadResource(Rez.Strings.LABEL_WEEK);
             case 33:
             case 32:
                 if(propIsMetricDistance) { return formatLabel(Rez.Strings.LABEL_WKM_1, Rez.Strings.LABEL_WDISTKM_2, labelSize); }
@@ -2408,7 +2401,6 @@ class Seg34CNView extends WatchUi.WatchFace {
             case 39: return formatLabel(Rez.Strings.LABEL_DAWN_1, Rez.Strings.LABEL_DAWN_2, labelSize);
             case 40: return formatLabel(Rez.Strings.LABEL_DUSK_1, Rez.Strings.LABEL_DUSK_2, labelSize);
             case 42: return formatLabel(Rez.Strings.LABEL_ALARM_1, Rez.Strings.LABEL_ALARM_2, labelSize);
-            case 57: return formatLabel(Rez.Strings.LABEL_NEXTCAL_1, Rez.Strings.LABEL_NEXTCAL_2, labelSize);
             case 59: return formatLabel(Rez.Strings.LABEL_OX_1, Rez.Strings.LABEL_OX_2, labelSize);
             case 76: return formatLabel(Rez.Strings.LABEL_RHR_1, Rez.Strings.LABEL_RHR_2, labelSize);
         }
