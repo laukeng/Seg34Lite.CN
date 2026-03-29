@@ -54,7 +54,7 @@ class Seg34CNView extends WatchUi.WatchFace {
     hidden var fontTinyData as WatchUi.FontResource?;
     hidden var fontSmallData as WatchUi.FontResource?;
     hidden var fontLargeData as WatchUi.FontResource?;
-    hidden var fontAODData as WatchUi.FontResource?;
+    // hidden var fontAODData as WatchUi.FontResource?;
     hidden var fontBottomData as WatchUi.FontResource?;
     hidden var fontBattery as WatchUi.FontResource?;
     hidden var cachedDayOfWeek as Number = -1;
@@ -144,7 +144,7 @@ class Seg34CNView extends WatchUi.WatchFace {
     hidden var propSunsetFieldShows as Number = 40;
     hidden var propWeatherLine1Shows as Number = 70;
     hidden var propWeatherLine2Shows as Number = 99;
-    hidden var propDateFormat as Number = 7;
+    hidden var propDateFormat as Number = 1;
     hidden var propNotificationCountShows as Number = 36;
     hidden var propTzOffset1 as Number = 0;
     hidden var propTzOffset2 as Number = 0;
@@ -379,7 +379,7 @@ class Seg34CNView extends WatchUi.WatchFace {
         fontLargeData = Application.loadResource(Rez.Fonts.led_big);
         fontBottomData = Application.loadResource(Rez.Fonts.led);
         fontLabel = Application.loadResource(Rez.Fonts.smol);
-        fontAODData = fontBottomData;
+        // fontAODData = fontBottomData;
         fontBattery = Application.loadResource(Rez.Fonts.led_small_lines);
 
         loadAODGraphics();
@@ -415,7 +415,7 @@ class Seg34CNView extends WatchUi.WatchFace {
         fontLargeData = Application.loadResource(Rez.Fonts.led_big);
         fontBottomData = fontLargeData;
         fontLabel = Application.loadResource(Rez.Fonts.storre);
-        fontAODData = Application.loadResource(Rez.Fonts.led);
+        // fontAODData = Application.loadResource(Rez.Fonts.led);
         fontBattery = fontTinyData;
 
         loadAODGraphics();
@@ -448,7 +448,7 @@ class Seg34CNView extends WatchUi.WatchFace {
         fontLargeData = Application.loadResource(Rez.Fonts.led_big);
         fontBottomData = fontLargeData;
         fontLabel = Application.loadResource(Rez.Fonts.storre);
-        fontAODData = Application.loadResource(Rez.Fonts.led);
+        // fontAODData = Application.loadResource(Rez.Fonts.led);
         fontBattery = fontTinyData;
 
         loadAODGraphics();
@@ -481,7 +481,7 @@ class Seg34CNView extends WatchUi.WatchFace {
         fontLargeData = Application.loadResource(Rez.Fonts.led_big);
         fontBottomData = fontLargeData;
         fontLabel = Application.loadResource(Rez.Fonts.storre);
-        fontAODData = Application.loadResource(Rez.Fonts.led);
+        // fontAODData = Application.loadResource(Rez.Fonts.led);
         fontBattery = fontTinyData;
 
         loadAODGraphics();
@@ -513,7 +513,7 @@ class Seg34CNView extends WatchUi.WatchFace {
         fontLargeData = Application.loadResource(Rez.Fonts.led_big);
         fontBottomData = fontLargeData;
         fontLabel = Application.loadResource(Rez.Fonts.storre);
-        fontAODData = Application.loadResource(Rez.Fonts.led);
+        // fontAODData = Application.loadResource(Rez.Fonts.led);
         fontBattery = fontTinyData;
 
         loadAODGraphics();
@@ -549,7 +549,7 @@ class Seg34CNView extends WatchUi.WatchFace {
         fontLargeData = Application.loadResource(Rez.Fonts.led_big);
         fontBottomData = fontLargeData;
         fontLabel = Application.loadResource(Rez.Fonts.storre);
-        fontAODData = Application.loadResource(Rez.Fonts.led);
+        // fontAODData = Application.loadResource(Rez.Fonts.led);
         fontBattery = fontTinyData;
 
         loadAODGraphics();
@@ -1072,11 +1072,11 @@ class Seg34CNView extends WatchUi.WatchFace {
             var y1 = baseY + halfClockHeight + marginY;
             dc.setColor(themeColors[dateDim], Graphics.COLOR_TRANSPARENT);
             if(propAodAlignment == 0) {
-                dc.drawText(baseX - halfClockWidth + textSideAdj - (now.min % 3), y1, fontAODData, values[:dataAODLeft], Graphics.TEXT_JUSTIFY_LEFT);
+                dc.drawText(baseX - halfClockWidth + textSideAdj - (now.min % 3), y1, fontSmallData, values[:dataAODLeft], Graphics.TEXT_JUSTIFY_LEFT);
             } else {
-                dc.drawText(baseX - (now.min % 3), y1, fontAODData, values[:dataAODLeft], Graphics.TEXT_JUSTIFY_CENTER);
+                dc.drawText(baseX - (now.min % 3), y1, fontSmallData, values[:dataAODLeft], Graphics.TEXT_JUSTIFY_CENTER);
             }
-            dc.drawText(baseX + halfClockWidth - textSideAdj - 2 - (now.min % 3), y1, fontAODData, values[:dataAODRight], Graphics.TEXT_JUSTIFY_RIGHT);
+            dc.drawText(baseX + halfClockWidth - textSideAdj - 2 - (now.min % 3), y1, fontSmallData, values[:dataAODRight], Graphics.TEXT_JUSTIFY_RIGHT);
         }
     }
 
@@ -2426,11 +2426,11 @@ class Seg34CNView extends WatchUi.WatchFace {
         var value = "";
 
         switch(propDateFormat) {
-            case 1: // WEEKDAY YYYY-MM-DD
-                value = dayName(today.day_of_week) + "  " + today.year + "-" + today.month.format("%02d") + "-" + today.day.format("%02d");
+            case 1: // YYYY-MM-DD WEEKDAY
+                value = today.year + "-" + today.month.format("%02d") + "-" + today.day.format("%02d") + " " + dayName(today.day_of_week);
                 break;
-            case 2: // YYYY-MM-DD WEEKDAY
-                value = today.year + "-" + today.month.format("%02d") + "-" + today.day.format("%02d") + "  " + dayName(today.day_of_week);
+            case 2: // WEEKDAY YYYY-MM-DD
+                value = dayName(today.day_of_week) + " " + today.year + "-" + today.month.format("%02d") + "-" + today.day.format("%02d");
                 break;
         }
 
