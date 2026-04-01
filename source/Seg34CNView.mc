@@ -89,6 +89,8 @@ class Seg34CNView extends WatchUi.WatchFace {
     hidden var cachedRunDist7Days as Number = 0;
     hidden var cachedBikeDist7Days as Number = 0;
     hidden var lastActivityDistUpdate as Number = 0;
+    hidden var cachedStressValue as Number? = null;
+    hidden var cachedStressTime as Number? = null;
 
     (:WeatherCache) hidden var lastHfTime as Number? = null;
     (:WeatherCache) hidden var lastCcHash as Number? = null;
@@ -1584,33 +1586,65 @@ class Seg34CNView extends WatchUi.WatchFace {
 
     (:HighMem)
     hidden function getStressData() as Number? {
+        var stressValue = null;
+        
         if (hasComplications) {
             try {
                 var complication_stress = Complications.getComplication(new Id(Complications.COMPLICATION_TYPE_STRESS));
                 if (complication_stress != null && complication_stress.value != null) {
-                    return complication_stress.value;
+                    stressValue = complication_stress.value;
                 }
             } catch(e) {}
         }
-        if ((Toybox has :SensorHistory) && (Toybox.SensorHistory has :getBodyBatteryHistory) && (Toybox.SensorHistory has :getStressHistory)) {
+        if (stressValue == null && (Toybox has :SensorHistory) && (Toybox.SensorHistory has :getBodyBatteryHistory) && (Toybox.SensorHistory has :getStressHistory)) {
             var st_iterator = Toybox.SensorHistory.getStressHistory({:period => 1});
             if (st_iterator != null) {
                 var st = st_iterator.next();
-                if(st != null) { return st.data; }
+                if(st != null) { stressValue = st.data; }
             }
         }
+        
+        // Update cache if we got a valid value
+        if (stressValue != null) {
+            cachedStressValue = stressValue;
+            cachedStressTime = Time.now().value();
+            return stressValue;
+        }
+        
+        // Check cache if no valid value
+        var now = Time.now().value();
+        if (cachedStressValue != null && cachedStressTime != null && (now - cachedStressTime) < 3600) {
+            return cachedStressValue;
+        }
+        
         return null;
     }
 
     (:LowMem)
     hidden function getStressData() as Number? {
+        var stressValue = null;
+        
         if ((Toybox has :SensorHistory) && (Toybox.SensorHistory has :getBodyBatteryHistory) && (Toybox.SensorHistory has :getStressHistory)) {
             var st_iterator = Toybox.SensorHistory.getStressHistory({:period => 1});
             if (st_iterator != null) {
                 var st = st_iterator.next();
-                if(st != null) { return st.data; }
+                if(st != null) { stressValue = st.data; }
             }
         }
+        
+        // Update cache if we got a valid value
+        if (stressValue != null) {
+            cachedStressValue = stressValue;
+            cachedStressTime = Time.now().value();
+            return stressValue;
+        }
+        
+        // Check cache if no valid value
+        var now = Time.now().value();
+        if (cachedStressValue != null && cachedStressTime != null && (now - cachedStressTime) < 3600) {
+            return cachedStressValue;
+        }
+        
         return null;
     }
 
@@ -2165,6 +2199,11 @@ class Seg34CNView extends WatchUi.WatchFace {
             var humidity = getHumidity();
             var highlow = getHighLow();
             val = joinFour(temp, humidity, highlow, "");
+        } else if(complicationType == 55) { // Next Sun Event
+            var nextSunEventArray = getNextSunEvent();
+            if(nextSunEventArray != null && nextSunEventArray.size() == 2) {
+                val = formatSunTime(nextSunEventArray[0], width);
+            }
         } else if(complicationType == 58) { // Active / Total calories
             if(activityInfo == null) { activityInfo = ActivityMonitor.getInfo(); }
             var rest_calories = getRestCalories();
@@ -2182,6 +2221,8 @@ class Seg34CNView extends WatchUi.WatchFace {
             var condition = getWeatherCondition(false);
             var temp = getHighLow();
             val = condition + " " + temp;
+        } else if(complicationType == 75) { // Hours to next sun event
+            val = hoursToNextSunEvent();
         } else if(complicationType == 76) { // Resting Heart Rate
             var profile = UserProfile.getProfile();
             if(profile has :restingHeartRate) {
@@ -2342,8 +2383,10 @@ class Seg34CNView extends WatchUi.WatchFace {
             case 37: return formatLabel(Rez.Strings.LABEL_SUN_1, Rez.Strings.LABEL_SUNINT_2, Rez.Strings.LABEL_SUNINT_3, labelSize);
             case 39: return formatLabel(Rez.Strings.LABEL_DAWN_1, Rez.Strings.LABEL_DAWN_2, Rez.Strings.LABEL_DAWN_2, labelSize);
             case 40: return formatLabel(Rez.Strings.LABEL_DUSK_1, Rez.Strings.LABEL_DUSK_2, Rez.Strings.LABEL_DUSK_2, labelSize);
+            case 55: return formatLabel(Rez.Strings.LABEL_NEXTSUN_1, Rez.Strings.LABEL_NEXTSUN_2, Rez.Strings.LABEL_NEXTSUN_3, labelSize);
             case 42: return formatLabel(Rez.Strings.LABEL_ALARM_1, Rez.Strings.LABEL_ALARM_2, Rez.Strings.LABEL_ALARM_2, labelSize);
             case 59: return formatLabel(Rez.Strings.LABEL_OX_1, Rez.Strings.LABEL_OX_2, Rez.Strings.LABEL_OX_2, labelSize);
+            case 75: return formatLabel(Rez.Strings.LABEL_HRS_NEXT_SUN_EVENT_1, Rez.Strings.LABEL_HRS_NEXT_SUN_EVENT_1, Rez.Strings.LABEL_HRS_NEXT_SUN_EVENT_3, labelSize);
             case 76: return formatLabel(Rez.Strings.LABEL_RHR_1, Rez.Strings.LABEL_RHR_2, Rez.Strings.LABEL_RHR_3, labelSize);
         }
         return "";
@@ -2400,8 +2443,10 @@ class Seg34CNView extends WatchUi.WatchFace {
             case 38: return formatLabel(Rez.Strings.LABEL_TEMP_1, Rez.Strings.LABEL_TEMP_1, labelSize);
             case 39: return formatLabel(Rez.Strings.LABEL_DAWN_1, Rez.Strings.LABEL_DAWN_2, labelSize);
             case 40: return formatLabel(Rez.Strings.LABEL_DUSK_1, Rez.Strings.LABEL_DUSK_2, labelSize);
+            case 55: return formatLabel(Rez.Strings.LABEL_NEXTSUN_1, Rez.Strings.LABEL_NEXTSUN_2, labelSize);
             case 42: return formatLabel(Rez.Strings.LABEL_ALARM_1, Rez.Strings.LABEL_ALARM_2, labelSize);
             case 59: return formatLabel(Rez.Strings.LABEL_OX_1, Rez.Strings.LABEL_OX_2, labelSize);
+            case 75: return formatLabel(Rez.Strings.LABEL_HRS_NEXT_SUN_EVENT_1, Rez.Strings.LABEL_HRS_NEXT_SUN_EVENT_1, labelSize);
             case 76: return formatLabel(Rez.Strings.LABEL_RHR_1, Rez.Strings.LABEL_RHR_2, labelSize);
         }
         return "";
@@ -2616,6 +2661,21 @@ class Seg34CNView extends WatchUi.WatchFace {
             ret = weatherCondition.precipitationChance.format("%d") + "%";
         }
         return ret;
+    }
+
+    hidden function hoursToNextSunEvent() as String {
+        var nextSunEventArray = getNextSunEvent();
+        if(nextSunEventArray != null && nextSunEventArray.size() == 2) {
+            var nextSunEvent = nextSunEventArray[0] as Time.Moment;
+            var now = Time.now();
+            // Converting seconds to hours
+            var diff = (nextSunEvent.subtract(now)).value();
+            if(diff >= 36000) { // No decimals if 10+ hours
+                return (diff / 3600.0).format("%d");
+            }
+            return (diff / 3600.0).format("%.1f");
+        }
+        return "";
     }
 
     hidden function formatSunTime(s as Time.Moment?, width as Number) as String {

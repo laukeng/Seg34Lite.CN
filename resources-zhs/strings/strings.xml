@@ -150,11 +150,13 @@
     <string id="LABEL_DUSK_2">SUNSET</string>
     <string id="LABEL_ALARM_1">ALARM</string>
     <string id="LABEL_ALARM_2">ALARMS</string>
-    <string id="LABEL_NEXTCAL_1">CAL</string>
-    <string id="LABEL_NEXTCAL_2">NEXT CAL</string>
-    <string id="LABEL_NEXTCAL_3">NEXT CAL EVNT</string>
+    <string id="LABEL_NEXTSUN_1">SUN</string>
+    <string id="LABEL_NEXTSUN_2">NEXT SUN</string>
+    <string id="LABEL_NEXTSUN_3">NEXT SUN EVNT</string>
     <string id="LABEL_OX_1">OX</string>
     <string id="LABEL_OX_2">PULSE OX</string>
+    <string id="LABEL_HRS_NEXT_SUN_EVENT_1">H SUN</string>
+    <string id="LABEL_HRS_NEXT_SUN_EVENT_3">HRS SUN</string>
     <string id="LABEL_RHR_1">RHR</string>
     <string id="LABEL_RHR_2">REST HR</string>
     <string id="LABEL_RHR_3">RESTING HR</string>
