@@ -4,11 +4,11 @@ import Toybox.Lang;
 class LunarCalendar {
     private const START_YEAR = 2026;
     private const END_YEAR = 2030;
-    private const TIANGAN = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"];
-    private const DIZHI = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"];
-    private const LUNAR_MONTHS = ["正月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "冬月", "腊月"];
-    private const LUNAR_DAYS = ["初一", "初二", "初三", "初四", "初五", "初六", "初七", "初八", "初九", "初十","十一", "十二", "十三", "十四", "十五", "十六", "十七", "十八", "十九", "二十","廿一", "廿二", "廿三", "廿四", "廿五", "廿六", "廿七", "廿八", "廿九", "三十"];
-    private const SOLAR_TERMS = ["小寒", "大寒", "立春", "雨水", "惊蛰", "春分", "清明", "谷雨", "立夏", "小满", "芒种", "夏至", "小暑", "大暑", "立秋", "处暑", "白露", "秋分", "寒露", "霜降", "立冬", "小雪", "大雪", "冬至"];
+    private const TIANGAN = "甲乙丙丁戊己庚辛壬癸";
+    private const DIZHI = "子丑寅卯辰巳午未申酉戌亥";
+    private const LUNAR_MONTHS = "正月二月三月四月五月六月七月八月九月十月冬月腊月";
+    private const LUNAR_DAYS = "初一初二初三初四初五初六初七初八初九初十十一十二十三十四十五十六十七十八十九二十二十一二十二二十三二十四二十五二十六二十七二十八二十九三十";
+    private const SOLAR_TERMS = "小寒大寒立春雨水惊蛰春分清明谷雨立夏小满芒种夏至小暑大暑立秋处暑白露秋分寒露霜降立冬小雪大雪冬至";
     private const LUNAR_OFFSET_DAYS = [
         47, 77, 106, 136, 165, 194, 224, 253, 282, 312, 342, 372,
         401, 431, 461, 490, 520, 549, 578, 608, 637, 666, 696, 726,
@@ -16,7 +16,7 @@ class LunarCalendar {
         1139, 1169, 1199, 1228, 1258, 1287, 1317, 1346, 1376, 1405, 1434, 1464,
         1494, 1523, 1553, 1582, 1612, 1642, 1671, 1701, 1730, 1760, 1789, 1819
     ];
-    private const LEAP_MONTH_OFFSETS = [29, 64, 97];
+    private const LEAP_MONTH_OFFSETS = [29, 64];
     private const SOLAR_TERMS_OFFSETS = [
         4, 19, 34, 48, 63, 78, 94, 109, 124, 140, 155, 171, 187, 203, 218, 234, 249, 265, 280, 295, 310, 325, 340, 355,
         369, 384, 399, 414, 429, 444, 459, 474, 490, 505, 521, 536, 552, 568, 584, 599, 615, 630, 645, 660, 675, 690, 705, 720,
@@ -47,15 +47,16 @@ class LunarCalendar {
         var ganzhiYear = getGanzhiYear(lunarYear);
         
         // 构建农历月份字符串
-        var monthStr = LUNAR_MONTHS[lunarMonth - 1];
+        var monthStr = LUNAR_MONTHS.substring((lunarMonth - 1) * 2, lunarMonth * 2);
         if (isLeap == 1) {
             monthStr = "闰" + monthStr;
         }
         
         // 构建农历日期字符串
         var dayStr;
-        if (lunarDay >= 1 and lunarDay <= LUNAR_DAYS.size()) {
-            dayStr = LUNAR_DAYS[lunarDay - 1];
+        if (lunarDay >= 1 and lunarDay <= 30) {
+            var dayIndex = lunarDay - 1;
+            dayStr = LUNAR_DAYS.substring(dayIndex * 2, (dayIndex + 1) * 2);
         } else {
             dayStr = "00";
         }
@@ -100,7 +101,7 @@ class LunarCalendar {
             diZhiIndex += 12;
         }
         
-        return TIANGAN[tianGanIndex] + DIZHI[diZhiIndex];
+        return TIANGAN.substring(tianGanIndex, tianGanIndex + 1) + DIZHI.substring(diZhiIndex, diZhiIndex + 1);
     }
     
     // 检查是否是闰年
@@ -205,11 +206,13 @@ class LunarCalendar {
         for (var i = 0; i < SOLAR_TERMS_OFFSETS.size(); i++) {
             if (SOLAR_TERMS_OFFSETS[i] == days) {
                 // 当天是节气
-                return [0, SOLAR_TERMS[i % 24]];
+                var termIndex = i % 24;
+                return [0, SOLAR_TERMS.substring(termIndex * 2, (termIndex + 1) * 2)];
             } else if (SOLAR_TERMS_OFFSETS[i] > days) {
                 // 找到下一个节气
                 var daysToTerm = SOLAR_TERMS_OFFSETS[i] - days;
-                return [daysToTerm, SOLAR_TERMS[i % 24]];
+                var termIndex = i % 24;
+                return [daysToTerm, SOLAR_TERMS.substring(termIndex * 2, (termIndex + 1) * 2)];
             }
         }
         
