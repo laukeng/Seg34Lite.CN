@@ -7,7 +7,7 @@ class LunarCalendar {
     private const TIANGAN = "甲乙丙丁戊己庚辛壬癸";
     private const DIZHI = "子丑寅卯辰巳午未申酉戌亥";
     private const LUNAR_MONTHS = "正月二月三月四月五月六月七月八月九月十月冬月腊月";
-    private const LUNAR_DAYS = "初一初二初三初四初五初六初七初八初九初十十一十二十三十四十五十六十七十八十九二十二十一二十二二十三二十四二十五二十六二十七二十八二十九三十";
+    private const LUNAR_DAYS = "初一初二初三初四初五初六初七初八初九初十十一十二十三十四十五十六十七十八十九二十廿一廿二廿三廿四廿五廿六廿七廿八廿九三十";
     private const SOLAR_TERMS = "小寒大寒立春雨水惊蛰春分清明谷雨立夏小满芒种夏至小暑大暑立秋处暑白露秋分寒露霜降立冬小雪大雪冬至";
     private const LUNAR_OFFSET_DAYS = [
         47, 77, 106, 136, 165, 194, 224, 253, 282, 312, 342, 372,
