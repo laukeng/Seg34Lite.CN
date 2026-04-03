@@ -1747,25 +1747,25 @@ class Seg34CNView extends WatchUi.WatchFace {
                 value = sample.format("%d");
             }
         } else if(propBatteryVariant == 3) {
-                var sample = 0;
-                var max = 0;
-                var batLevel = System.getSystemStats().battery; 
+            var sample = 0;
+            var max = 0;
+            var batLevel = System.getSystemStats().battery; 
 
-                if(screenHeight > 280) {
-                    sample = Math.round(batLevel / 100.0 * 35).toNumber();
-                    max = 35;
-                } else {
-                    sample = Math.round(batLevel / 100.0 * 20).toNumber();
-                    max = 20;
-                }
-                if (sample > 0) {
-                    value += battFull.substring(0, sample);
-                }
-
-                if (sample < max) {
-                    value += battEmpty.substring(0, max - sample);
-                }
+            if(screenHeight > 280) {
+                sample = Math.round(batLevel / 100.0 * 35).toNumber();
+                max = 35;
+            } else {
+                sample = Math.round(batLevel / 100.0 * 20).toNumber();
+                max = 20;
             }
+            if (sample > 0) {
+                value += battFull.substring(0, sample);
+            }
+
+            if (sample < max) {
+                value += battEmpty.substring(0, max - sample);
+            }
+        }
 
         return value;
     }
@@ -2080,12 +2080,12 @@ class Seg34CNView extends WatchUi.WatchFace {
                 }
             }
         } else if(complicationType == 12) { // Altitude (m)
-                var alt = getAltitudeValue();
-                if (alt != null) {
-                    val = alt.format(numberFormat);
+            var alt = getAltitudeValue();
+            if (alt != null) {
+                val = alt.format(numberFormat);
             }
         } else if(complicationType == 13) { // Stress
-        var st = getStressData();
+            var st = getStressData();
             if(st != null) {
                 val = st.format(numberFormat);
             }
