@@ -6,7 +6,6 @@
     <string id="UNIT_FT">FT</string>
     <string id="UNIT_STEPS">STEPS</string>
     <string id="UNIT_PUSHES">PUSHES</string>
-    <string id="LABEL_NA">N/A</string>
 
     <string id="WEATHER_0">CLEAR</string>
     <string id="WEATHER_1">PARTLY CLOUDY</string>
@@ -160,6 +159,7 @@
     <string id="LABEL_RHR_1">RHR</string>
     <string id="LABEL_RHR_2">REST HR</string>
     <string id="LABEL_RHR_3">RESTING HR</string>
+    <string id="LABEL_NA">N/A</string>
 
     <!-- Settings strings with scope="settings" -->
     <string id="settings_color_theme" scope="settings">Color Theme</string>
@@ -283,7 +283,7 @@
     <string id="settings_line_2_above_clock" scope="settings">Line 2 above clock shows:</string>
     <string id="settings_line_below_clock" scope="settings">Line below clock shows:</string>
     <string id="settings_bottom_field_layout" scope="settings">Bottom field layout (number of digits per field)</string>
-    <string id="settings_auto_default_layout" scope="settings">Auto - Default layout depending on screen size</string>
+    <string id="settings_auto_default_layout" scope="settings">Auto layout depending on screen size</string>
     <string id="settings_bottom_value_1_left" scope="settings">Bottom value 1 (left):</string>
     <string id="settings_bottom_value_2" scope="settings">Bottom value 2:</string>
     <string id="settings_bottom_value_3" scope="settings">Bottom value 3:</string>

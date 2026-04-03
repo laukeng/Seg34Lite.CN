@@ -26,7 +26,7 @@
     <property id="batteryVariant" type="number">1</property>
     <property id="weatherLine1Shows" type="number">70</property>
     <property id="weatherLine2Shows" type="number">99</property>
-    <property id="fieldLayout" type="number">0</property>
+    <property id="fieldLayout" type="number">3</property>
     <property id="leftValueShows" type="number">4</property>
     <property id="middleValueShows" type="number">10</property>
     <property id="rightValueShows" type="number">11</property>

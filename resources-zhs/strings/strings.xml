@@ -6,7 +6,6 @@
     <string id="UNIT_FT">FT</string>
     <string id="UNIT_STEPS">STEPS</string>
     <string id="UNIT_PUSHES">PUSHES</string>
-    <string id="LABEL_NA">N/A</string>
 
     <string id="WEATHER_0">晴朗</string>
     <string id="WEATHER_1">局部多云</string>
@@ -160,6 +159,7 @@
     <string id="LABEL_RHR_1">RHR</string>
     <string id="LABEL_RHR_2">REST HR</string>
     <string id="LABEL_RHR_3">RESTING HR</string>
+    <string id="LABEL_NA">N/A</string>
 
     <!-- Settings strings with scope="settings" -->
     <string id="settings_color_theme" scope="settings">色彩主题</string>
@@ -283,7 +283,7 @@
     <string id="settings_line_2_above_clock" scope="settings">时钟上方第二行显示：</string>
     <string id="settings_line_below_clock" scope="settings">时钟下方显示：</string>
     <string id="settings_bottom_field_layout" scope="settings">底部字段布局（每个字段的位数）</string>
-    <string id="settings_auto_default_layout" scope="settings">自动 - 根据屏幕大小默认布局</string>
+    <string id="settings_auto_default_layout" scope="settings">根据屏幕大小自动布局</string>
     <string id="settings_bottom_value_1_left" scope="settings">底部值1（左）：</string>
     <string id="settings_bottom_value_2" scope="settings">底部值2：</string>
     <string id="settings_bottom_value_3" scope="settings">底部值3：</string>

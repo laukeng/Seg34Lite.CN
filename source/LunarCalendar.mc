@@ -55,8 +55,7 @@ class LunarCalendar {
         // 构建农历日期字符串
         var dayStr;
         if (lunarDay >= 1 and lunarDay <= 30) {
-            var dayIndex = lunarDay - 1;
-            dayStr = LUNAR_DAYS.substring(dayIndex * 2, (dayIndex + 1) * 2);
+            dayStr = LUNAR_DAYS.substring((lunarDay - 1) * 2, lunarDay * 2);
         } else {
             dayStr = "00";
         }
@@ -205,14 +204,11 @@ class LunarCalendar {
         // 查找下一个节气
         for (var i = 0; i < SOLAR_TERMS_OFFSETS.size(); i++) {
             if (SOLAR_TERMS_OFFSETS[i] == days) {
-                // 当天是节气
-                var termIndex = i % 24;
-                return [0, SOLAR_TERMS.substring(termIndex * 2, (termIndex + 1) * 2)];
+                return [0, SOLAR_TERMS.substring((i % 24) * 2, (i % 24) * 2 + 2)];
             } else if (SOLAR_TERMS_OFFSETS[i] > days) {
                 // 找到下一个节气
                 var daysToTerm = SOLAR_TERMS_OFFSETS[i] - days;
-                var termIndex = i % 24;
-                return [daysToTerm, SOLAR_TERMS.substring(termIndex * 2, (termIndex + 1) * 2)];
+                return [daysToTerm, SOLAR_TERMS.substring((i % 24) * 2, (i % 24) * 2 + 2)];
             }
         }
         
