@@ -1257,7 +1257,7 @@ class Seg34CNView extends WatchUi.WatchFace {
         if(propBatteryVariant == 3) {
             dc.drawText(x - 19, y + 4, fontBattery, values[:dataBattery], Graphics.TEXT_JUSTIFY_LEFT);
         } else { // centered when not a bar
-            dc.drawText(x - 1, y + 4, fontBattery, values[:dataBattery], Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(x - 1, y + 3, fontBattery, values[:dataBattery], Graphics.TEXT_JUSTIFY_CENTER);
         }
     }
 
