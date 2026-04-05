@@ -10,8 +10,6 @@ using Toybox.Position;
 
 class Seg34CNView extends WatchUi.WatchFace {
     private var _lunarCal;
-    private var _lastYear = -1;
-    private var _lastMonth = -1;
     private var _lastDay = -1;
     private var _lunarStrCache = "";
 
@@ -2239,14 +2237,10 @@ class Seg34CNView extends WatchUi.WatchFace {
             val = formatDistanceByWidth((complicationType == 77 ? cachedRunDist7Days : cachedBikeDist7Days) * distFactor, width);
         } else if(complicationType == 99) { // Chinese lunar date
             var now = Time.Gregorian.info(Time.now(), Time.FORMAT_SHORT);
-            var curYear = now.year;
-            var curMonth = now.month;
             var curDay = now.day;
-            if (curYear != _lastYear || curMonth != _lastMonth || curDay != _lastDay) {
+            if (curDay != _lastDay) {
                 {
                     _lunarStrCache = getLunarString(now);
-                    _lastYear = curYear;
-                    _lastMonth = curMonth;
                     _lastDay = curDay;
                     val = _lunarStrCache;
                 }
