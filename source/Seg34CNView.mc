@@ -12,6 +12,11 @@ class Seg34CNView extends WatchUi.WatchFace {
     private var _lunarCal;
     private var _lastDay = -1;
     private var _lunarStrCache = "";
+    private var _lastBatteryPercent = -1;
+    private var _lastBatteryData = "";
+    private var activityInfo = null;
+    private var activityInfo2 = null;
+    private var systemStats = null;
 
     hidden var visible as Boolean = true;
     hidden var screenHeight as Number;
@@ -579,6 +584,9 @@ class Seg34CNView extends WatchUi.WatchFace {
 
     hidden function computeDisplayValues(now as Gregorian.Info) as Dictionary {
         var values = {};
+        activityInfo = ActivityMonitor.getInfo();
+        activityInfo2 = Activity.getActivityInfo();
+        systemStats = System.getSystemStats();
         
         // From updateSlowData logic
         values[:dataClock] = getClockData(now);
@@ -612,13 +620,12 @@ class Seg34CNView extends WatchUi.WatchFace {
         computeBottomField2Values(values);
         values[:dataIcon1] = getIconState(propIcon1);
         values[:dataIcon2] = getIconState(propIcon2);
-        values[:dataBattery] = getBattData();
         values[:dataAODLeft] = getValueByType(propAodFieldShows, 10);
         values[:dataAODRight] = getValueByType(propAodRightFieldShows, 5);
         values[:dataLeftBar] = getBarData(propLeftBarShows);
         values[:dataRightBar] = getBarData(propRightBarShows);
 
-        if(!infoMessage.length() == 0) {
+        if(infoMessage.length() != 0) {
             values[:dataBelow] = infoMessage;
             infoMessage = ""; 
         }
@@ -630,6 +637,9 @@ class Seg34CNView extends WatchUi.WatchFace {
             values[:dataSeconds] = now.sec.format("%02d");
         }
 
+        activityInfo = null;
+        activityInfo2 = null;
+        systemStats = null;
         return values;
     }
 
@@ -662,6 +672,7 @@ class Seg34CNView extends WatchUi.WatchFace {
             lastSlowUpdate = unix_timestamp;
             updateColorTheme();
             updateWeather();
+            updateBattData();
         }
 
         if(lastUpdate == null or unix_timestamp - lastUpdate >= propUpdateFreq) {
@@ -711,6 +722,7 @@ class Seg34CNView extends WatchUi.WatchFace {
         reloadSettings();
         lastUpdate = null;
         lastSlowUpdate = null;
+        _lastBatteryPercent = -1;
         WatchUi.requestUpdate();
     }
 
@@ -1247,15 +1259,15 @@ class Seg34CNView extends WatchUi.WatchFace {
 
         dc.setColor(0x555555, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, fontIcons, "C", Graphics.TEXT_JUSTIFY_CENTER);
-        if(System.getSystemStats().battery <= 15) {
+        if(_lastBatteryPercent <= 15) {
             dc.setColor(0xFF0000, Graphics.COLOR_TRANSPARENT);
         } else {
             dc.setColor(themeColors[dataVal], Graphics.COLOR_TRANSPARENT);
         }
         if(propBatteryVariant == 3) {
-            dc.drawText(x - 19, y + 4, fontBattery, values[:dataBattery], Graphics.TEXT_JUSTIFY_LEFT);
+            dc.drawText(x - 19, y + 4, fontBattery, _lastBatteryData, Graphics.TEXT_JUSTIFY_LEFT);
         } else { // centered when not a bar
-            dc.drawText(x - 1, y + 3, fontBattery, values[:dataBattery], Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(x - 1, y + 3, fontBattery, _lastBatteryData, Graphics.TEXT_JUSTIFY_CENTER);
         }
     }
 
@@ -1267,15 +1279,15 @@ class Seg34CNView extends WatchUi.WatchFace {
 
         dc.setColor(0x555555, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, fontIcons, "B", Graphics.TEXT_JUSTIFY_CENTER);
-        if(System.getSystemStats().battery <= 15) {
+        if(_lastBatteryPercent <= 15) {
             dc.setColor(0xFF0000, Graphics.COLOR_TRANSPARENT);
         } else {
             dc.setColor(themeColors[dataVal], Graphics.COLOR_TRANSPARENT);
         }
         if(propBatteryVariant == 3) {
-            dc.drawText(x - 11, y + 3, fontBattery, values[:dataBattery], Graphics.TEXT_JUSTIFY_LEFT);
+            dc.drawText(x - 11, y + 3, fontBattery, _lastBatteryData, Graphics.TEXT_JUSTIFY_LEFT);
         } else {
-            dc.drawText(x - 1, y + 3, fontBattery, values[:dataBattery], Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(x - 1, y + 3, fontBattery, _lastBatteryData, Graphics.TEXT_JUSTIFY_CENTER);
         }
     }
 
@@ -1483,8 +1495,7 @@ class Seg34CNView extends WatchUi.WatchFace {
                 if (sample != null && sample.data != null) { return sample.data.toFloat(); }
             }
         }
-        var info = Activity.getActivityInfo();
-        if (info != null && info.altitude != null) { return info.altitude.toFloat(); }
+        if (activityInfo2 != null && activityInfo2.altitude != null) { return activityInfo2.altitude.toFloat(); }
         return null;
     }
 
@@ -1497,8 +1508,7 @@ class Seg34CNView extends WatchUi.WatchFace {
                 if (sample != null && sample.data != null) { return sample.data.toFloat(); }
             }
         }
-        var info = Activity.getActivityInfo();
-        if (info != null && info.altitude != null) { return info.altitude.toFloat(); }
+        if (activityInfo2 != null && activityInfo2.altitude != null) { return activityInfo2.altitude.toFloat(); }
         return null;
     }
 
@@ -1550,9 +1560,9 @@ class Seg34CNView extends WatchUi.WatchFace {
             }
         } else if(setting == 5) { // Move bar
             var mov = 0;
-            if(ActivityMonitor.getInfo() has :moveBarLevel) {
-                if(ActivityMonitor.getInfo().moveBarLevel != null) {
-                    mov = ActivityMonitor.getInfo().moveBarLevel;
+            if(activityInfo has :moveBarLevel) {
+                if(activityInfo.moveBarLevel != null) {
+                    mov = activityInfo.moveBarLevel;
                 }
             }
             if(mov == 0) { return ""; }
@@ -1689,42 +1699,43 @@ class Seg34CNView extends WatchUi.WatchFace {
     }
 
     hidden function getStepGoalProgress() as Number? {
-        var info = ActivityMonitor.getInfo();
-        if(info.steps != null and info.stepGoal != null) {
-            return goalPercent(info.steps, info.stepGoal);
+        if(activityInfo.steps != null and activityInfo.stepGoal != null) {
+            return goalPercent(activityInfo.steps, activityInfo.stepGoal);
         }
         return null;
     }
 
     hidden function getFloorGoalProgress() as Number? {
-        var info = ActivityMonitor.getInfo();
-        if(info has :floorsClimbed and info has :floorsClimbedGoal) {
-            if(info.floorsClimbed != null and info.floorsClimbedGoal != null) {
-                return goalPercent(info.floorsClimbed, info.floorsClimbedGoal);
+        if(activityInfo has :floorsClimbed and activityInfo has :floorsClimbedGoal) {
+            if(activityInfo.floorsClimbed != null and activityInfo.floorsClimbedGoal != null) {
+                return goalPercent(activityInfo.floorsClimbed, activityInfo.floorsClimbedGoal);
             }
         }
         return null;
     }
 
     hidden function getActMinGoalProgress() as Number? {
-        var info = ActivityMonitor.getInfo();
-        if(info.activeMinutesWeek != null and info.activeMinutesWeekGoal != null) {
-            return goalPercent(info.activeMinutesWeek.total, info.activeMinutesWeekGoal);
+        if(activityInfo.activeMinutesWeek != null and activityInfo.activeMinutesWeekGoal != null) {
+            return goalPercent(activityInfo.activeMinutesWeek.total, activityInfo.activeMinutesWeekGoal);
         }
         return null;
     }
 
     hidden function getMoveBar() as Number? {
-        if(ActivityMonitor.getInfo() has :moveBarLevel) {
-            if(ActivityMonitor.getInfo().moveBarLevel != null) {
-                var mov = ActivityMonitor.getInfo().moveBarLevel;
+        if(activityInfo has :moveBarLevel) {
+            if(activityInfo.moveBarLevel != null) {
+                var mov = activityInfo.moveBarLevel;
                 if(mov >= 1 && mov <= 5) { return 25 + mov * 15; }
             }
         }
         return null;
     }
 
-    hidden function getBattData() as String {
+    hidden function updateBattData() as Void {
+        // Check if battery percentage has changed
+        var batteryPercent = System.getSystemStats().battery;
+        if(batteryPercent == _lastBatteryPercent) { return; }
+        
         var value = "";
 
         if(propBatteryVariant == 0) {
@@ -1738,7 +1749,7 @@ class Seg34CNView extends WatchUi.WatchFace {
             }
         }
         if(propBatteryVariant == 1) {
-            var sample = System.getSystemStats().battery;
+            var sample = batteryPercent;
             if(sample < 100) {
                 value = sample.format("%d") + "%";
             } else {
@@ -1747,7 +1758,7 @@ class Seg34CNView extends WatchUi.WatchFace {
         } else if(propBatteryVariant == 3) {
             var sample = 0;
             var max = 0;
-            var batLevel = System.getSystemStats().battery; 
+            var batLevel = batteryPercent; 
 
             if(screenHeight > 280) {
                 sample = Math.round(batLevel / 100.0 * 35).toNumber();
@@ -1765,7 +1776,9 @@ class Seg34CNView extends WatchUi.WatchFace {
             }
         }
 
-        return value;
+        // Update cache
+        _lastBatteryPercent = batteryPercent;
+        _lastBatteryData = value;
     }
 
     hidden function formatHour(hour as Number) as Number {
@@ -1813,7 +1826,6 @@ class Seg34CNView extends WatchUi.WatchFace {
     hidden function storeWeatherData() as Void {
         var now = Time.now().value();
         var sysStats = System.getSystemStats();
-
         if (!isLowMem && sysStats.freeMemory < 15000) {
             isLowMem = true;
             Application.Storage.setValue("hourly_forecast", []); 
@@ -1919,14 +1931,12 @@ class Seg34CNView extends WatchUi.WatchFace {
                 }
             } catch(e) {}
         }
-        var info = ActivityMonitor.getInfo();
-        if(info has :timeToRecovery && info.timeToRecovery != null) { return info.timeToRecovery.format(numberFormat); }
+        if(activityInfo has :timeToRecovery && activityInfo.timeToRecovery != null) { return activityInfo.timeToRecovery.format(numberFormat); }
         return "";
     }
     (:LowMem)
     hidden function getRecoveryTimeVal(numberFormat as String) as String {
-        var info = ActivityMonitor.getInfo();
-        if(info has :timeToRecovery && info.timeToRecovery != null) { return info.timeToRecovery.format(numberFormat); }
+        if(activityInfo has :timeToRecovery && activityInfo.timeToRecovery != null) { return activityInfo.timeToRecovery.format(numberFormat); }
         return "";
     }
 
@@ -1988,42 +1998,36 @@ class Seg34CNView extends WatchUi.WatchFace {
     hidden function getValueByType(complicationType as Number, width as Number) as String {
         var val = "";
         var numberFormat = "%d";
-        var activityInfo = null;
 
         if(complicationType == -2) { // Hidden
             return "";
         } else if(complicationType == -1) { // Date
             val = formatDate();
-        } else if(complicationType == 0) { // Active min / week
-            activityInfo = ActivityMonitor.getInfo();
+        } else if(complicationType == 0) { // Active min / week           
             if(activityInfo has :activeMinutesWeek) {
                 if(activityInfo.activeMinutesWeek != null) {
                     val = activityInfo.activeMinutesWeek.total.format(numberFormat);
                 }
             }
         } else if(complicationType == 1) { // Active min / day
-            if(activityInfo == null) { activityInfo = ActivityMonitor.getInfo(); }
             if(activityInfo has :activeMinutesDay) {
                 if(activityInfo.activeMinutesDay != null) {
                     val = activityInfo.activeMinutesDay.total.format(numberFormat);
                 }
             }
         } else if(complicationType == 2 || complicationType == 3) { // distance / day
-            if(activityInfo == null) { activityInfo = ActivityMonitor.getInfo(); }
             if(activityInfo has :distance) {
                 if(activityInfo.distance != null) {
                     val = formatDistanceByWidth(activityInfo.distance / (propIsMetricDistance ? 100000.0 : 160900.0), width);
                 }
             }
         } else if(complicationType == 4) { // floors climbed / day
-            if(activityInfo == null) { activityInfo = ActivityMonitor.getInfo(); }
             if(activityInfo has :floorsClimbed) {
                 if(activityInfo.floorsClimbed != null) {
                     val = activityInfo.floorsClimbed.format(numberFormat);
                 }
             }
         } else if(complicationType == 5) { // meters climbed / day
-            if(activityInfo == null) { activityInfo = ActivityMonitor.getInfo(); }
             if(activityInfo has :metersClimbed) {
                 if(activityInfo.metersClimbed != null) {
                     val = activityInfo.metersClimbed.format(numberFormat);
@@ -2047,7 +2051,6 @@ class Seg34CNView extends WatchUi.WatchFace {
                 }
             }
         } else if(complicationType == 9) { // Respiration rate
-            if(activityInfo == null) { activityInfo = ActivityMonitor.getInfo(); }
             if(activityInfo has :respirationRate) {
                 var resp_rate = activityInfo.respirationRate;
                 if(resp_rate != null) {
@@ -2056,8 +2059,7 @@ class Seg34CNView extends WatchUi.WatchFace {
             }
         } else if(complicationType == 10) {
             // Try to retrieve live HR from Activity::Info
-            var activity_info = Activity.getActivityInfo();
-            var sample = activity_info.currentHeartRate;
+            var sample = activityInfo2.currentHeartRate;
             if(sample != null) {
                 val = sample.format("%01d");
             } else if (ActivityMonitor has :getHeartRateHistory) {
@@ -2071,7 +2073,6 @@ class Seg34CNView extends WatchUi.WatchFace {
                 }
             }
         } else if(complicationType == 11) { // Calories
-            if(activityInfo == null) { activityInfo = ActivityMonitor.getInfo(); }
             if (activityInfo has :calories) {
                 if(activityInfo.calories != null) {
                     val = activityInfo.calories.format(numberFormat);
@@ -2100,7 +2101,6 @@ class Seg34CNView extends WatchUi.WatchFace {
         } else if(complicationType == 16) { // Alt TZ 1
             val = secondaryTimezone(propTzOffset1, width);
         } else if(complicationType == 17) { // Steps / day
-            if(activityInfo == null) { activityInfo = ActivityMonitor.getInfo(); }
             if(activityInfo.steps != null) {
                 if(width >= 5) {
                     val = activityInfo.steps.format(numberFormat);
@@ -2115,7 +2115,6 @@ class Seg34CNView extends WatchUi.WatchFace {
 
             }
         } else if(complicationType == 18) { // Distance (m) / day
-            if(activityInfo == null) { activityInfo = ActivityMonitor.getInfo(); }
             if(activityInfo.distance != null) {
                 val = (activityInfo.distance / 100).format(numberFormat);
             }
@@ -2126,12 +2125,10 @@ class Seg34CNView extends WatchUi.WatchFace {
         } else if(complicationType == 23 || complicationType == 24) { // Weekly bike distance
             val = getWeeklyDistanceFromComplication(false, propIsMetricDistance ? 0.001 : 0.000621371, width);
         } else if(complicationType == 26) { // Raw Barometric pressure (hPA)
-            var info = Activity.getActivityInfo();
-            if (info has :rawAmbientPressure && info.rawAmbientPressure != null) {
-                val = formatPressure(info.rawAmbientPressure / 100.0, width);
+            if (activityInfo2 has :rawAmbientPressure && activityInfo2.rawAmbientPressure != null) {
+                val = formatPressure(activityInfo2.rawAmbientPressure / 100.0, width);
             }
         } else if(complicationType == 29) { // Act Calories
-            if(activityInfo == null) { activityInfo = ActivityMonitor.getInfo(); }
             var rest_calories = getRestCalories();
             // Get total calories and subtract rest calories
             if (activityInfo has :calories && activityInfo.calories != null && rest_calories > 0) {
@@ -2141,19 +2138,17 @@ class Seg34CNView extends WatchUi.WatchFace {
                 } else { val = "0"; }
             }
         } else if(complicationType == 30) { // Sea level pressure (hPA)
-            var info = Activity.getActivityInfo();
-            if (info has :meanSeaLevelPressure && info.meanSeaLevelPressure != null) {
-                val = formatPressure(info.meanSeaLevelPressure / 100.0, width);
+            if (activityInfo2 has :meanSeaLevelPressure && activityInfo2.meanSeaLevelPressure != null) {
+                val = formatPressure(activityInfo2.meanSeaLevelPressure / 100.0, width);
             }
         } else if(complicationType == 32 || complicationType == 33) { // Total distance past 7 days
             val = formatDistanceByWidth(getWeeklyDistance() * (propIsMetricDistance ? 0.00001 : 0.00000621371), width);
         } else if(complicationType == 34) { // Battery percentage
-            var battery = System.getSystemStats().battery;
+            var battery = systemStats.battery;
             val = battery.format("%d");
         } else if(complicationType == 35) { // Battery days remaining
-            var stats35 = System.getSystemStats();
-            if(stats35 has :batteryInDays and stats35.batteryInDays != null) {
-                val = Math.round(stats35.batteryInDays).format(numberFormat);
+            if(systemStats has :batteryInDays and systemStats.batteryInDays != null) {
+                val = Math.round(systemStats.batteryInDays).format(numberFormat);
             }
         } else if(complicationType == 36) { // Notification count
             var notif_count = System.getDeviceSettings().notificationCount;
@@ -2165,9 +2160,8 @@ class Seg34CNView extends WatchUi.WatchFace {
                 }
             }
         } else if(complicationType == 37) { // Solar intensity
-            var stats37 = System.getSystemStats();
-            if(stats37 has :solarIntensity and stats37.solarIntensity != null) {
-                val = stats37.solarIntensity.format(numberFormat);
+            if(systemStats has :solarIntensity and systemStats.solarIntensity != null) {
+                val = systemStats.solarIntensity.format(numberFormat);
             }
         } else if(complicationType == 38) { // Sensor temperature
             if ((Toybox has :SensorHistory) and (Toybox.SensorHistory has :getTemperatureHistory)) {
@@ -2203,7 +2197,6 @@ class Seg34CNView extends WatchUi.WatchFace {
                 val = formatSunTime(nextSunEventArray[0], width);
             }
         } else if(complicationType == 58) { // Active / Total calories
-            if(activityInfo == null) { activityInfo = ActivityMonitor.getInfo(); }
             var rest_calories = getRestCalories();
             var total_calories = 0;
             // Get total calories and subtract rest calories
@@ -2741,7 +2734,7 @@ class Seg34CNView extends WatchUi.WatchFace {
 
     hidden function getWeeklyDistance() as Number {
         var weekly_distance = 0;
-        if(ActivityMonitor.getInfo() has :distance) {
+        if(activityInfo has :distance) {
             var history = ActivityMonitor.getHistory();
             if (history != null) {
                 // Only take up to 6 previous days from history
@@ -2753,8 +2746,8 @@ class Seg34CNView extends WatchUi.WatchFace {
                 }
             }
             // Add today's distance
-            if(ActivityMonitor.getInfo().distance != null) {
-                weekly_distance += ActivityMonitor.getInfo().distance;
+            if(activityInfo.distance != null) {
+                weekly_distance += activityInfo.distance;
             }
         }
         return weekly_distance;
