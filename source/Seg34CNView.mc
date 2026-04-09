@@ -12,6 +12,8 @@ class Seg34CNView extends WatchUi.WatchFace {
     private var _lunarCal;
     private var _lastDay = -1;
     private var _lunarStrCache = "";
+    private var _lastMoonPhaseDay = -1;
+    private var _moonPhaseCache = "";
     private var _lastBatteryPercent = -1;
     private var _lastBatteryData = "";
     private var activityInfo = null;
@@ -590,7 +592,6 @@ class Seg34CNView extends WatchUi.WatchFace {
         
         // From updateSlowData logic
         values[:dataClock] = getClockData(now);
-        values[:dataMoon] = (propTopPartShows == 0) ? moonPhase(now) : "";
         if(propTopPartShows == 2) {
             values[:dataGraph1] = getDataArrayByType(propHistogramData);
         } else {
@@ -670,6 +671,7 @@ class Seg34CNView extends WatchUi.WatchFace {
 
         if(now.sec % 60 == 0 or lastSlowUpdate == null or unix_timestamp - lastSlowUpdate >= 60) {
             lastSlowUpdate = unix_timestamp;
+            if (propTopPartShows == 0) { updateMoonPhase(now); }
             updateColorTheme();
             updateWeather();
             updateBattData();
@@ -827,7 +829,7 @@ class Seg34CNView extends WatchUi.WatchFace {
 
                 // Draw Moon
                 dc.setColor(themeColors[moon], Graphics.COLOR_TRANSPARENT);
-                dc.drawText(centerX, marginY + ((top_data_height + tinyDataHeight) / 2), fontMoon, values[:dataMoon], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                dc.drawText(centerX, marginY + ((top_data_height + tinyDataHeight) / 2), fontMoon, _moonPhaseCache, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             } else {
                 if(top_data_height == halfMarginY) { top_field_font = fontSmallData; }
                 dc.drawText(centerX - top_field_center_offset, marginY + top_data_height, top_field_font, values[:dataTopLeft], Graphics.TEXT_JUSTIFY_RIGHT);
@@ -954,7 +956,7 @@ class Seg34CNView extends WatchUi.WatchFace {
 
                 // Draw Moon
                 dc.setColor(themeColors[moon], Graphics.COLOR_TRANSPARENT);
-                dc.drawText(centerX, marginY + ((top_data_height + tinyDataHeight) / 2), fontMoon, values[:dataMoon], Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                dc.drawText(centerX, marginY + ((top_data_height + tinyDataHeight) / 2), fontMoon, _moonPhaseCache, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             } else {
                 if(top_data_height == halfMarginY) { top_field_font = fontSmallData; }
                 dc.drawText(centerX - top_field_center_offset, marginY + top_data_height, top_field_font, values[:dataTopLeft], Graphics.TEXT_JUSTIFY_RIGHT);
@@ -2497,7 +2499,12 @@ class Seg34CNView extends WatchUi.WatchFace {
         return val;
     }
 
-    hidden function moonPhase(time) as String {
+    hidden function updateMoonPhase(time) as Void {
+        // Check if date has changed
+        if (time.day == _lastMoonPhaseDay && _moonPhaseCache != "") {
+            return;
+        }
+        
         var jd = julianDay(time.year, time.month, time.day);
 
         var days_since_new_moon = jd - 2459966;
@@ -2505,9 +2512,11 @@ class Seg34CNView extends WatchUi.WatchFace {
         var phase = ((days_since_new_moon / lunar_cycle) * 100).toNumber() % 100;
         var into_cycle = (phase / 100.0) * lunar_cycle;
 
-        if(time.month == 5 and time.day == 4) {
-            return "8"; // That's no moon!
-        }
+        // if(time.month == 5 and time.day == 4) {
+        //     _moonPhaseCache = "8"; // That's no moon!
+        //     _lastMoonPhaseDay = time.day;
+        //     return;
+        // }
 
         var moonPhase;
         if (into_cycle < 3) { // 2+1
@@ -2535,8 +2544,8 @@ class Seg34CNView extends WatchUi.WatchFace {
             moonPhase = (8 - moonPhase) % 8;
         }
 
-        return moonPhase.toString();
-
+        _lastMoonPhaseDay = time.day;
+        _moonPhaseCache = moonPhase.toString();
     }
 
     hidden function formatDistanceByWidth(distance as Float, width as Number) as String {
