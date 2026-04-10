@@ -9,16 +9,16 @@ import Toybox.Complications;
 using Toybox.Position;
 
 class Seg34CNView extends WatchUi.WatchFace {
-    private var _lunarCal;
-    private var _lastDay = -1;
-    private var _lunarStrCache = "";
-    private var _lastMoonPhaseDay = -1;
-    private var _moonPhaseCache = "";
-    private var _lastBatteryPercent = -1;
-    private var _lastBatteryData = "";
-    private var activityInfo = null;
-    private var activityInfo2 = null;
-    private var systemStats = null;
+    hidden var lunarCal;
+    hidden var lastLunarDay = -1;
+    hidden var lunarStrCache = "";
+    hidden var lastMoonPhaseDay = -1;
+    hidden var moonPhaseCache = ""; 
+    hidden var lastBatteryPercent = -1;
+    hidden var lastBatteryData = "";
+    hidden var activityInfo = null;
+    hidden var activityInfo2 = null;
+    hidden var systemStats = null;
 
     hidden var visible as Boolean = true;
     hidden var screenHeight as Number;
@@ -213,7 +213,7 @@ class Seg34CNView extends WatchUi.WatchFace {
 
     function initialize() {
         WatchFace.initialize();
-        _lunarCal = new LunarCalendar();
+        lunarCal = new LunarCalendar();
 
         if(System.getDeviceSettings() has :requiresBurnInProtection) { canBurnIn = System.getDeviceSettings().requiresBurnInProtection; }
 
@@ -233,7 +233,7 @@ class Seg34CNView extends WatchUi.WatchFace {
         var year = now.year;
         var month = now.month;
         var day = now.day;
-        var lunarStr = _lunarCal.getLunarDateString(year, month, day);
+        var lunarStr = lunarCal.getLunarDateString(year, month, day);
         return lunarStr;
     }
 
@@ -286,7 +286,6 @@ class Seg34CNView extends WatchUi.WatchFace {
     (:Round240)
     hidden function loadResources() as Void {
         fontClock = Application.loadResource(Rez.Fonts.segments80narrow);
-
         fontTinyData = Application.loadResource(Rez.Fonts.smol);
         fontSmallData = Application.loadResource(Rez.Fonts.led_small_lines);
         fontLargeData = Application.loadResource(Rez.Fonts.led);
@@ -318,7 +317,6 @@ class Seg34CNView extends WatchUi.WatchFace {
     (:Round260)
     hidden function loadResources() as Void {
         fontClock = Application.loadResource(Rez.Fonts.segments80);
-            
         fontTinyData = Application.loadResource(Rez.Fonts.smol);
         fontSmallData = Application.loadResource(Rez.Fonts.led_small_lines);
         fontLargeData = Application.loadResource(Rez.Fonts.led);
@@ -349,7 +347,6 @@ class Seg34CNView extends WatchUi.WatchFace {
     (:Round280)
     hidden function loadResources() as Void {
         fontClock = Application.loadResource(Rez.Fonts.segments80wide);
-        
         fontTinyData = Application.loadResource(Rez.Fonts.storre);
         fontSmallData = Application.loadResource(Rez.Fonts.led_small_lines);
         fontLargeData = Application.loadResource(Rez.Fonts.led);
@@ -380,7 +377,6 @@ class Seg34CNView extends WatchUi.WatchFace {
     hidden function loadResources() as Void {
         fontClock = Application.loadResource(Rez.Fonts.segments125narrow);
         fontClockOutline = Application.loadResource(Rez.Fonts.segments125narrowoutline);
-        
         fontTinyData = Application.loadResource(Rez.Fonts.storre);
         fontSmallData = Application.loadResource(Rez.Fonts.led_lines);
         fontLargeData = Application.loadResource(Rez.Fonts.led_big);
@@ -416,7 +412,6 @@ class Seg34CNView extends WatchUi.WatchFace {
     hidden function loadResources() as Void {
         fontClock = Application.loadResource(Rez.Fonts.segments125);
         fontClockOutline = Application.loadResource(Rez.Fonts.segments125outline);
-        
         fontTinyData = Application.loadResource(Rez.Fonts.led_small_lines);
         fontSmallData = Application.loadResource(Rez.Fonts.led_lines);
         fontLargeData = Application.loadResource(Rez.Fonts.led_big);
@@ -449,7 +444,6 @@ class Seg34CNView extends WatchUi.WatchFace {
     hidden function loadResources() as Void {
         fontClock = Application.loadResource(Rez.Fonts.segments125);
         fontClockOutline = Application.loadResource(Rez.Fonts.segments125outline);
-
         fontTinyData = Application.loadResource(Rez.Fonts.led_small_lines);
         fontSmallData = Application.loadResource(Rez.Fonts.led_lines);
         fontLargeData = Application.loadResource(Rez.Fonts.led_big);
@@ -482,7 +476,6 @@ class Seg34CNView extends WatchUi.WatchFace {
     hidden function loadResources() as Void {
         fontClock = Application.loadResource(Rez.Fonts.segments125);
         fontClockOutline = Application.loadResource(Rez.Fonts.segments125outline);
-
         fontTinyData = Application.loadResource(Rez.Fonts.led_small_lines);
         fontSmallData = Application.loadResource(Rez.Fonts.led_lines);
         fontLargeData = Application.loadResource(Rez.Fonts.led_big);
@@ -514,7 +507,6 @@ class Seg34CNView extends WatchUi.WatchFace {
     hidden function loadResources() as Void {
         fontClock = Application.loadResource(Rez.Fonts.segments145);
         fontClockOutline = Application.loadResource(Rez.Fonts.segments145outline);
-
         fontTinyData = Application.loadResource(Rez.Fonts.led_small_lines);
         fontSmallData = Application.loadResource(Rez.Fonts.led_lines);
         fontLargeData = Application.loadResource(Rez.Fonts.led_big);
@@ -550,7 +542,6 @@ class Seg34CNView extends WatchUi.WatchFace {
     hidden function loadResources() as Void {
         fontClock = Application.loadResource(Rez.Fonts.segments145);
         fontClockOutline = Application.loadResource(Rez.Fonts.segments145outline);
-        
         fontTinyData = Application.loadResource(Rez.Fonts.led_small_lines);
         fontSmallData = Application.loadResource(Rez.Fonts.led_lines);
         fontLargeData = Application.loadResource(Rez.Fonts.led_big);
@@ -724,7 +715,7 @@ class Seg34CNView extends WatchUi.WatchFace {
         reloadSettings();
         lastUpdate = null;
         lastSlowUpdate = null;
-        _lastBatteryPercent = -1;
+        lastBatteryPercent = -1;
         WatchUi.requestUpdate();
     }
 
@@ -829,7 +820,7 @@ class Seg34CNView extends WatchUi.WatchFace {
 
                 // Draw Moon
                 dc.setColor(themeColors[moon], Graphics.COLOR_TRANSPARENT);
-                dc.drawText(centerX, marginY + ((top_data_height + tinyDataHeight) / 2), fontMoon, _moonPhaseCache, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                dc.drawText(centerX, marginY + ((top_data_height + tinyDataHeight) / 2), fontMoon, moonPhaseCache, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             } else {
                 if(top_data_height == halfMarginY) { top_field_font = fontSmallData; }
                 dc.drawText(centerX - top_field_center_offset, marginY + top_data_height, top_field_font, values[:dataTopLeft], Graphics.TEXT_JUSTIFY_RIGHT);
@@ -956,7 +947,7 @@ class Seg34CNView extends WatchUi.WatchFace {
 
                 // Draw Moon
                 dc.setColor(themeColors[moon], Graphics.COLOR_TRANSPARENT);
-                dc.drawText(centerX, marginY + ((top_data_height + tinyDataHeight) / 2), fontMoon, _moonPhaseCache, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                dc.drawText(centerX, marginY + ((top_data_height + tinyDataHeight) / 2), fontMoon, moonPhaseCache, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
             } else {
                 if(top_data_height == halfMarginY) { top_field_font = fontSmallData; }
                 dc.drawText(centerX - top_field_center_offset, marginY + top_data_height, top_field_font, values[:dataTopLeft], Graphics.TEXT_JUSTIFY_RIGHT);
@@ -1261,15 +1252,15 @@ class Seg34CNView extends WatchUi.WatchFace {
 
         dc.setColor(0x555555, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, fontIcons, "C", Graphics.TEXT_JUSTIFY_CENTER);
-        if(_lastBatteryPercent <= 15) {
+        if(lastBatteryPercent <= 15) {
             dc.setColor(0xFF0000, Graphics.COLOR_TRANSPARENT);
         } else {
             dc.setColor(themeColors[dataVal], Graphics.COLOR_TRANSPARENT);
         }
         if(propBatteryVariant == 3) {
-            dc.drawText(x - 19, y + 4, fontBattery, _lastBatteryData, Graphics.TEXT_JUSTIFY_LEFT);
+            dc.drawText(x - 19, y + 4, fontBattery, lastBatteryData, Graphics.TEXT_JUSTIFY_LEFT);
         } else { // centered when not a bar
-            dc.drawText(x - 1, y + 3, fontBattery, _lastBatteryData, Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(x - 1, y + 3, fontBattery, lastBatteryData, Graphics.TEXT_JUSTIFY_CENTER);
         }
     }
 
@@ -1281,15 +1272,15 @@ class Seg34CNView extends WatchUi.WatchFace {
 
         dc.setColor(0x555555, Graphics.COLOR_TRANSPARENT);
         dc.drawText(x, y, fontIcons, "B", Graphics.TEXT_JUSTIFY_CENTER);
-        if(_lastBatteryPercent <= 15) {
+        if(lastBatteryPercent <= 15) {
             dc.setColor(0xFF0000, Graphics.COLOR_TRANSPARENT);
         } else {
             dc.setColor(themeColors[dataVal], Graphics.COLOR_TRANSPARENT);
         }
         if(propBatteryVariant == 3) {
-            dc.drawText(x - 11, y + 3, fontBattery, _lastBatteryData, Graphics.TEXT_JUSTIFY_LEFT);
+            dc.drawText(x - 11, y + 3, fontBattery, lastBatteryData, Graphics.TEXT_JUSTIFY_LEFT);
         } else {
-            dc.drawText(x - 1, y + 3, fontBattery, _lastBatteryData, Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(x - 1, y + 3, fontBattery, lastBatteryData, Graphics.TEXT_JUSTIFY_CENTER);
         }
     }
 
@@ -1736,7 +1727,7 @@ class Seg34CNView extends WatchUi.WatchFace {
     hidden function updateBattData() as Void {
         // Check if battery percentage has changed
         var batteryPercent = System.getSystemStats().battery;
-        if(batteryPercent == _lastBatteryPercent) { return; }
+        if(batteryPercent == lastBatteryPercent) { return; }
         
         var value = "";
 
@@ -1779,8 +1770,8 @@ class Seg34CNView extends WatchUi.WatchFace {
         }
 
         // Update cache
-        _lastBatteryPercent = batteryPercent;
-        _lastBatteryData = value;
+        lastBatteryPercent = batteryPercent;
+        lastBatteryData = value;
     }
 
     hidden function formatHour(hour as Number) as Number {
@@ -2233,14 +2224,14 @@ class Seg34CNView extends WatchUi.WatchFace {
         } else if(complicationType == 99) { // Chinese lunar date
             var now = Time.Gregorian.info(Time.now(), Time.FORMAT_SHORT);
             var curDay = now.day;
-            if (curDay != _lastDay) {
+            if (curDay != lastLunarDay) {
                 {
-                    _lunarStrCache = getLunarString(now);
-                    _lastDay = curDay;
-                    val = _lunarStrCache;
+                    lunarStrCache = getLunarString(now);
+                    lastLunarDay = curDay;
+                    val = lunarStrCache;
                 }
             } else {
-                val = _lunarStrCache;
+                val = lunarStrCache;
             }
         }
 
@@ -2501,7 +2492,7 @@ class Seg34CNView extends WatchUi.WatchFace {
 
     hidden function updateMoonPhase(time) as Void {
         // Check if date has changed
-        if (time.day == _lastMoonPhaseDay && _moonPhaseCache != "") {
+        if (time.day == lastMoonPhaseDay && moonPhaseCache != "") {
             return;
         }
         
@@ -2513,8 +2504,8 @@ class Seg34CNView extends WatchUi.WatchFace {
         var into_cycle = (phase / 100.0) * lunar_cycle;
 
         // if(time.month == 5 and time.day == 4) {
-        //     _moonPhaseCache = "8"; // That's no moon!
-        //     _lastMoonPhaseDay = time.day;
+        //     moonPhaseCache = "8"; // That's no moon!
+        //     lastMoonPhaseDay = time.day;
         //     return;
         // }
 
@@ -2544,8 +2535,8 @@ class Seg34CNView extends WatchUi.WatchFace {
             moonPhase = (8 - moonPhase) % 8;
         }
 
-        _lastMoonPhaseDay = time.day;
-        _moonPhaseCache = moonPhase.toString();
+        lastMoonPhaseDay = time.day;
+        moonPhaseCache = moonPhase.toString();
     }
 
     hidden function formatDistanceByWidth(distance as Float, width as Number) as String {

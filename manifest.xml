@@ -110,7 +110,6 @@
         -->
         <iq:languages>
             <iq:language>zhs</iq:language>
-            <iq:language>eng</iq:language>
         </iq:languages>
         <!--
             Use "Monkey C: Configure Monkey Barrel" from the Visual Studio Code
