@@ -75,12 +75,6 @@ def main():
     # Find all strings.xml files
     lang_dirs = [
         ('English', base_dir / 'resources' / 'strings' / 'strings.xml'),
-        ('Swedish', base_dir / 'resources-swe' / 'strings' / 'strings.xml'),
-        ('French', base_dir / 'resources-fre' / 'strings' / 'strings.xml'),
-        ('Italian', base_dir / 'resources-ita' / 'strings' / 'strings.xml'),
-        ('Polish', base_dir / 'resources-pol' / 'strings' / 'strings.xml'),
-        ('German', base_dir / 'resources-deu' / 'strings.xml'),
-        ('Spanish', base_dir / 'resources-spa' / 'strings.xml'),
     ]
 
     # Collect all labels with widths

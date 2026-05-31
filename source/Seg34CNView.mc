@@ -2105,7 +2105,6 @@ class Seg34CNView extends WatchUi.WatchFace {
                         val = steps_k.format("%d") + "K";
                     }
                 }
-
             }
         } else if(complicationType == 18) { // Distance (m) / day
             if(activityInfo.distance != null) {
@@ -2592,7 +2591,7 @@ class Seg34CNView extends WatchUi.WatchFace {
 
     hidden function getHumidity() as String {
         var ret = "";
-        if(weatherCondition != null and weatherCondition.relativeHumidity != null) {
+        if(weatherCondition != null and weatherCondition has :relativeHumidity and weatherCondition.relativeHumidity != null) {
             ret = weatherCondition.relativeHumidity.format("%d") + "%";
         }
         return ret;
