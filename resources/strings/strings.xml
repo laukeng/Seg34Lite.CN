@@ -341,6 +341,9 @@
     <string id="settings_hemisphere_moon" scope="settings">半球（用于月亮图标）</string>
     <string id="settings_northern" scope="settings">北半球</string>
     <string id="settings_southern" scope="settings">南半球</string>
+    <string id="settings_moon_BG" scope="settings">月相阴影</string>
+    <string id="settings_moon_BG_off" scope="settings">不显示</string>
+    <string id="settings_moon_BG_on" scope="settings">显示</string>
     <string id="settings_time_format" scope="settings">时间格式（12/24小时）</string>
     <string id="settings_auto_use_system" scope="settings">自动 - 使用系统设置</string>
     <string id="settings_24h" scope="settings">24小时</string>

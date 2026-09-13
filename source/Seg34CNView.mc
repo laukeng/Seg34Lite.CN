@@ -137,6 +137,7 @@ class Seg34CNView extends WatchUi.WatchFace {
     hidden var propIcon1 as Number = 1;
     hidden var propIcon2 as Number = 4;
     hidden var propHemisphere as Number = 0;
+    hidden var propMoonBG as Number = 1;
     hidden var propHourFormat as Number = 0;
     hidden var propZeropadHour as Boolean = true;
     hidden var propTimeSeparator as Number = 0;
@@ -817,7 +818,11 @@ class Seg34CNView extends WatchUi.WatchFace {
             if(propTopPartShows == 0) {
                 dc.drawText(centerX - top_field_center_offset, marginY + top_data_height, top_field_font, values[:dataTopLeft], Graphics.TEXT_JUSTIFY_RIGHT);
                 dc.drawText(centerX + top_field_center_offset, marginY + top_data_height, top_field_font, values[:dataTopRight], Graphics.TEXT_JUSTIFY_LEFT);
-
+                // Draw Moon background
+                if (propMoonBG) {
+                    dc.setColor(themeColors[moon], Graphics.COLOR_TRANSPARENT);
+                    dc.drawText(centerX, marginY + 2 + ((top_data_height + tinyDataHeight) / 2), fontMoon, "N", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                }
                 // Draw Moon
                 dc.setColor(themeColors[moon], Graphics.COLOR_TRANSPARENT);
                 dc.drawText(centerX, marginY + 2 + ((top_data_height + tinyDataHeight) / 2), fontMoon, moonPhaseCache, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
@@ -944,7 +949,11 @@ class Seg34CNView extends WatchUi.WatchFace {
             if(propTopPartShows == 0) {
                 dc.drawText(centerX - top_field_center_offset, marginY + top_data_height, top_field_font, values[:dataTopLeft], Graphics.TEXT_JUSTIFY_RIGHT);
                 dc.drawText(centerX + top_field_center_offset, marginY + top_data_height, top_field_font, values[:dataTopRight], Graphics.TEXT_JUSTIFY_LEFT);
-
+                // Draw Moon background
+                if (propMoonBG) {
+                    dc.setColor(themeColors[moon], Graphics.COLOR_TRANSPARENT);
+                    dc.drawText(centerX, marginY + 2 + ((top_data_height + tinyDataHeight) / 2), fontMoon, "N", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+                }
                 // Draw Moon
                 dc.setColor(themeColors[moon], Graphics.COLOR_TRANSPARENT);
                 dc.drawText(centerX, marginY + 2 + ((top_data_height + tinyDataHeight) / 2), fontMoon, moonPhaseCache, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
@@ -1437,6 +1446,7 @@ class Seg34CNView extends WatchUi.WatchFace {
         propBottomFieldAlignment = p.getValue("bottomFieldAlignment") as Number;
         propBottomFieldLabelAlignment = p.getValue("bottomFieldLabelAlignment") as Number;
         propHemisphere = p.getValue("hemisphere") as Number;
+        propMoonBG = p.getValue("moonBG") as Number;
         propHourFormat = p.getValue("hourFormat") as Number;
         propZeropadHour = p.getValue("zeropadHour") as Boolean;
         propIs24H = System.getDeviceSettings().is24Hour;

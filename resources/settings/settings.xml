@@ -813,6 +813,13 @@
             </settingConfig>
     </setting>
 
+    <setting propertyKey="@Properties.moonBG" title="@Strings.settings_moon_BG">
+            <settingConfig type="list">
+                <listEntry value="0">@Strings.settings_moon_BG_off</listEntry>
+                <listEntry value="1">@Strings.settings_moon_BG_on</listEntry>
+            </settingConfig>
+    </setting>
+
     <setting propertyKey="@Properties.dateFormat" title="@Strings.settings_date_format">
         <settingConfig type="list">
             <listEntry value="1">@Strings.settings_yyyy_mm_dd_weekday</listEntry>
